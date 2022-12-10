@@ -1,4 +1,7 @@
 // Reference: https://www.youtube.com/watch?v=ZmpO65DhRN0&ab_channel=SairajChouhan
+/*
+This File has the Firebase authentication processes
+ */
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import {

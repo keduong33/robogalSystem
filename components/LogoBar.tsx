@@ -1,3 +1,7 @@
+/*
+The design of the Logo Bar/ Navigation Bar
+ */
+
 import Image from "next/image";
 import React from "react";
 

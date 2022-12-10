@@ -1,3 +1,7 @@
+/*
+This File has the skeleton of the Login Form 
+ */
+
 import React from "react";
 import LoginForm from "../components/LoginForm";
 import LogoBar from "../components/LogoBar";

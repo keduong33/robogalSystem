@@ -1,3 +1,7 @@
+/*
+This File has the skeleton of the Register Form 
+ */
+
 import React, { useState } from "react";
 import LogoBar from "../components/LogoBar";
 import RegisterForm from "../components/RegisterForm";
