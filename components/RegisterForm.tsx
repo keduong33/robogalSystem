@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAuth } from "../authentication/AuthContext";
 
-function LoginForm() {
+function RegisterForm() {
+  const { user, signup } = useAuth();
+  console.log(user);
+  const [formDetails, setFormDetails] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSignup = async (e: any) => {
+    e.preventDefault();
+    try {
+      await signup(formDetails.email, formDetails.password);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="border rounded-3xl md:w-6/12 sm:w-2/3 lg:w-1/3 bg-opacity-30 bg-slate-200 p-6 sm:p-10 md:p-20 lg:p-10">
-      <form>
+      <form onSubmit={handleSignup}>
         <div className="mb-8">
           <h1 className="block text-6xl font-bold mb-4 text-black">Sign in</h1>
           <h2 className="text-black font-bold text-md">
-            Book a Robogals session for your school
+            Sign up to book a Robogals session
           </h2>
         </div>
         <div className="mb-4">
@@ -19,6 +36,9 @@ function LoginForm() {
             id="email"
             type="text"
             placeholder="Enter your email"
+            onChange={(event) => {
+              setFormDetails({ ...formDetails, email: event.target.value });
+            }}
           />
         </div>
         <div className="">
@@ -31,20 +51,17 @@ function LoginForm() {
             id="password"
             type="password"
             placeholder="Enter your Password Password"
+            onChange={(event) => {
+              setFormDetails({ ...formDetails, password: event.target.value });
+            }}
           />
         </div>
         <div className="flex flex-col justify-between">
-          <a
-            className="inline-block align-baseline font-bold text-sm text-black underline text-right mb-6"
-            href="#"
-          >
-            Forgot Password?
-          </a>
           <button
-            className="bg-color-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full"
+            className="bg-color-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full mt-6"
             type="submit"
           >
-            Sign In
+            Register
           </button>
         </div>
       </form>
@@ -72,17 +89,8 @@ function LoginForm() {
           Sign in with Google
         </button>
       </div>
-      {/* Sign up */}
-      <div className="mt-8 w-full text-center">
-        <label>
-          Don&apos;t have an account?{" "}
-          <a className="font-bold underline" href="#">
-            Register
-          </a>
-        </label>
-      </div>
     </div>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;

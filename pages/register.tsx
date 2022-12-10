@@ -1,10 +1,8 @@
-import React from "react";
-import LoginForm from "../components/LoginForm";
+import React, { useState } from "react";
 import LogoBar from "../components/LogoBar";
+import RegisterForm from "../components/RegisterForm";
 
-type Props = {};
-
-function Login(props: Props) {
+function Register() {
   return (
     <main className="bg-gradient-to-br from-blue-50 via-blue-400 to-blue-200 min-h-screen">
       {/* login container */}
@@ -14,11 +12,11 @@ function Login(props: Props) {
         </div>
         {/* Form container */}
         <div className="h-full flex items-center justify-center">
-          <LoginForm />
+          <RegisterForm />
         </div>
       </div>
     </main>
   );
 }
 
-export default Login;
+export default Register;

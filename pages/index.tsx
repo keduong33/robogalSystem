@@ -1,12 +1,7 @@
-import Head from "next/head";
-import Image from "next/image";
-
-import Login from "./Login";
+import { useRouter } from "next/router";
+import React from "react";
+import Test from "./testsite";
 
 export default function Home() {
-  return (
-    <div>
-      <Login />
-    </div>
-  );
+  return <Test />;
 }
