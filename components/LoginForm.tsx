@@ -1,3 +1,7 @@
+/*
+This File has all the functionalities and design of the Login Form 
+ */
+
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -20,15 +24,6 @@ function LoginForm() {
     try {
       await login(formDetails.email, formDetails.password);
       router.push("testsite");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleLogout = async (e: any) => {
-    e.preventDefault();
-    try {
-      await logout(formDetails.email, formDetails.password);
     } catch (error) {
       console.log(error);
     }

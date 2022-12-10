@@ -1,3 +1,7 @@
+/*
+This File has all the functionalities and design of the Register Form 
+ */
+
 import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 
