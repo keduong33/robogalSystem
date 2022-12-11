@@ -23,12 +23,4 @@
 label{
   color: black;
 }
-
-.bg-color-blue{
-  --tw-bg-opacity: 1;
-    background-color: rgb(40 153 243 / var(--tw-bg-opacity));
-}
-.rounded-alot{
-  border-radius: 0px 100px 100px 0px;
-}
 }
