@@ -6,9 +6,7 @@ import React from "react";
 import LoginForm from "../components/LoginForm";
 import LogoBar from "../components/LogoBar";
 
-type Props = {};
-
-function Login(props: Props) {
+function Login() {
   return (
     <main className="bg-gradient-to-br from-blue-50 via-blue-400 to-blue-200 min-h-screen">
       {/* login container */}

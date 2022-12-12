@@ -1,22 +1,29 @@
 /*
-This File has all the functionalities and design of the Register Form 
+This File has all the functionalities and design of the Login Form 
  */
 
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 
-function RegisterForm() {
-  const { user, signup } = useAuth();
-  console.log(user);
+function LoginForm() {
+  const router = useRouter();
+  const { user, login, logout } = useAuth();
   const [formDetails, setFormDetails] = useState({
     email: "",
     password: "",
   });
 
-  const handleSignup = async (e: any) => {
+  if (user) {
+    router.push("testsite");
+  }
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signup(formDetails.email, formDetails.password);
+      await login(formDetails.email, formDetails.password);
+      router.push("testsite");
     } catch (error) {
       console.log(error);
     }
@@ -24,11 +31,11 @@ function RegisterForm() {
 
   return (
     <div className="border rounded-3xl md:w-6/12 sm:w-2/3 lg:w-1/3 bg-opacity-30 bg-slate-200 p-6 sm:p-10 md:p-20 lg:p-10">
-      <form onSubmit={handleSignup}>
+      <form onSubmit={handleLogin}>
         <div className="mb-8">
           <h1 className="block text-6xl font-bold mb-4 text-black">Sign in</h1>
           <h2 className="text-black font-bold text-md">
-            Sign up to book a Robogals session
+            Book a Robogals session for your school
           </h2>
         </div>
         <div className="mb-4">
@@ -61,11 +68,17 @@ function RegisterForm() {
           />
         </div>
         <div className="flex flex-col justify-between">
+          <a
+            className="inline-block align-baseline font-bold text-sm text-black underline text-right mb-6"
+            href="#"
+          >
+            Forgot Password?
+          </a>
           <button
-            className="bg-color-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full mt-6"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full"
             type="submit"
           >
-            Register
+            Sign In
           </button>
         </div>
       </form>
@@ -93,8 +106,17 @@ function RegisterForm() {
           Sign in with Google
         </button>
       </div>
+      {/* Sign up */}
+      <div className="mt-8 w-full text-center">
+        <label>
+          Don&apos;t have an account?{" "}
+          <Link className="font-bold underline" href="/register">
+            Register
+          </Link>
+        </label>
+      </div>
     </div>
   );
 }
 
-export default RegisterForm;
+export default LoginForm;

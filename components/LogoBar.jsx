@@ -5,9 +5,7 @@ The design of the Logo Bar/ Navigation Bar
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
-
-function LogoBar({}: Props) {
+function LogoBar() {
   return (
     <div className="w-full">
       <div className="flex justify-center">

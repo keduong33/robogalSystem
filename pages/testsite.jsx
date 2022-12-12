@@ -2,9 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useAuth } from "../authentication/AuthContext";
 
-type Props = {};
-
-const Test = (props: Props) => {
+const Test = () => {
   const { user, logout } = useAuth();
   const router = useRouter();
 
@@ -12,7 +10,7 @@ const Test = (props: Props) => {
     router.push("login");
   }
 
-  const handleLogout = async (e: any) => {
+  const handleLogout = async (e) => {
     e.preventDefault();
     try {
       await logout(user.email, user.password);
