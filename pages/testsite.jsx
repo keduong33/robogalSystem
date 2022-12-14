@@ -1,3 +1,7 @@
+/*
+Testing Site --> Do whatever you want with it --> it has basic authentication implemented
+ */
+
 import { useRouter } from "next/router";
 import React from "react";
 import { useAuth } from "../authentication/AuthContext";
@@ -24,6 +28,8 @@ const Test = () => {
     <div>
       <div>Hello {user?.email}. Welcome to the Test page!</div>
       <button onClick={handleLogout}>Logout</button>
+      <hr></hr>
+      <a href="calendar">Testing</a>
     </div>
   );
 };

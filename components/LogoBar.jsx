@@ -1,11 +1,16 @@
 /*
-The design of the Logo Bar/ Navigation Bar
+Design of the Logo Bar
  */
 
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
+import { useAuth } from "../authentication/AuthContext";
 
 function LogoBar() {
+  const router = useRouter();
+  const { user } = useAuth();
+
   return (
     <div className="w-full">
       <div className="flex justify-center">
