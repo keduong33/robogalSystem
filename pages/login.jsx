@@ -32,22 +32,13 @@ function Login() {
   };
 
   return (
-    <main className="bg-gradient-to-br from-blue-50 via-blue-400 to-blue-200 min-h-screen">
-      {/* login container */}
-      <div className="h-full flex flex-col">
-        <div>
-          <LogoBar />
-        </div>
-        {/* Form container */}
-        <div className="h-full flex items-center justify-center">
-          <LoginComp
-            setFormDetails={setFormDetails}
-            formDetails={formDetails}
-            handleLogin={handleLogin}
-          />
-        </div>
-      </div>
-    </main>
+    <div className="h-full flex items-center justify-center">
+      <LoginComp
+        setFormDetails={setFormDetails}
+        formDetails={formDetails}
+        handleLogin={handleLogin}
+      />
+    </div>
   );
 }
 

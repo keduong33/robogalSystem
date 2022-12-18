@@ -29,7 +29,14 @@ const Test = () => {
       <div>Hello {user?.email}. Welcome to the Test page!</div>
       <button onClick={handleLogout}>Logout</button>
       <hr></hr>
-      <a href="calendar">Testing</a>
+      {/* <a href="calendar">Calendar</a> */}
+      <button
+        onClick={() => {
+          router.push("calendar");
+        }}
+      >
+        Calendar
+      </button>
     </div>
   );
 };

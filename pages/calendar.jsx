@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 import CalendarComp from "../components/CalendarComp";
+import LogoBar from "../components/LogoBar";
 
 function Calendar() {
   // Basic authentication check
@@ -20,7 +21,11 @@ function Calendar() {
   // Functionalities
   const [date, setDate] = useState(dayjs());
 
-  return <CalendarComp date={date} setDate={setDate} />;
+  return (
+    <div>
+      <CalendarComp date={date} setDate={setDate} />
+    </div>
+  );
 }
 
 export default Calendar;

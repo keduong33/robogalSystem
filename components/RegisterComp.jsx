@@ -2,6 +2,7 @@
 Design of the Register Page
  */
 
+import Link from "next/link";
 import React from "react";
 
 function RegisterComp({ formDetails, setFormDetails, handleSignup }) {
@@ -75,6 +76,14 @@ function RegisterComp({ formDetails, setFormDetails, handleSignup }) {
           </svg>
           Sign in with Google
         </button>
+      </div>
+      <div className="mt-8 w-full text-center">
+        <label>
+          Already have an account?{" "}
+          <Link className="font-bold underline" href="/login">
+            Login
+          </Link>
+        </label>
       </div>
     </div>
   );
