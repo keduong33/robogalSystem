@@ -1,13 +1,10 @@
 /*
 Functionalities and Design of the Calendar Page
  */
-
-import dayjs from "dayjs";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 import CalendarComp from "../components/CalendarComp";
-import LogoBar from "../components/LogoBar";
 
 function Calendar() {
   // Basic authentication check
@@ -19,18 +16,17 @@ function Calendar() {
   }
 
   // Functionalities
-  const [date, setDate] = useState(dayjs());
+  const [date, setDate] = useState(new Date());
 
   return (
     <div className="flex justify-between">
       <div className="bg-gray-500">
         <CalendarComp date={date} setDate={setDate} />
         <div className="text-center">
-          The picked date is {date.format("DD/MM/YYYY")}
+          The picked date is {date ? date.toDateString() : "No Date"}
         </div>
       </div>
-      <div>Another Calendar</div>
-      <div>Another Calendar</div>
+      {date ? <div>Yes</div> : <div>No</div>}
     </div>
   );
 }

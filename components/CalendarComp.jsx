@@ -2,23 +2,27 @@
 Design of the Calendar Component
  */
 
-import { CalendarPicker, LocalizationProvider } from "@mui/x-date-pickers";
 import React from "react";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { Calendar } from "react-calendar";
 
 function CalendarComp({ date, setDate }) {
   return (
     <div>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <CalendarPicker
-          date={date}
+      <div>
+        <Calendar
           onChange={setDate}
-          shouldDisableYear={() => {
-            return true;
-          }}
-          views={["day", "month"]}
-        ></CalendarPicker>
-      </LocalizationProvider>
+          value={date}
+          minDetail="year"
+          next2Label={null}
+          prev2Label={null}
+          showNeighboringMonth={false}
+          formatShortWeekday={(locale, date) => date.toString().substring(0, 1)}
+        />
+        <div>
+          <button>Choose Time</button>
+        </div>
+      </div>
+      <hr></hr>
     </div>
   );
 }
