@@ -22,8 +22,15 @@ function Calendar() {
   const [date, setDate] = useState(dayjs());
 
   return (
-    <div>
-      <CalendarComp date={date} setDate={setDate} />
+    <div className="flex justify-between">
+      <div className="bg-gray-500">
+        <CalendarComp date={date} setDate={setDate} />
+        <div className="text-center">
+          The picked date is {date.format("DD/MM/YYYY")}
+        </div>
+      </div>
+      <div>Another Calendar</div>
+      <div>Another Calendar</div>
     </div>
   );
 }

@@ -11,7 +11,6 @@ function CalendarComp({ date, setDate }) {
     <div>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <CalendarPicker
-          className="bg-gray-500"
           date={date}
           onChange={setDate}
           shouldDisableYear={() => {
