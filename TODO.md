@@ -1,5 +1,4 @@
 # David
-- [ ] Add type into some of the any variables
 - [ ] Store UID into the database when a new user is created
 - [ ] Work out the security rules for the user --> References:
     - https://firebase.google.com/docs/firestore/security/rules-conditions
@@ -8,6 +7,7 @@
 - [ ] Work out the security of route between pages --> Ensure user does not over-extend their access to different pages --> References:
     - https://daily.dev/blog/authentication-in-nextjs
 - [ ] Change testsite to something else --> right now it acts as a dashboard/index
+- [ ] Right now, the calendar takes a while to render --> Have to optimise it or use other thing instead of MUI
 
 --> Testing account:
 username: testing@gmail.com
