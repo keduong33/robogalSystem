@@ -4,7 +4,6 @@ Functionalities and Design of the LOGIN Page
 
 import React, { useState } from "react";
 import LoginComp from "../components/LoginComp";
-import LogoBar from "../components/LogoBar";
 import { useRouter } from "next/router";
 import { useAuth } from "../authentication/AuthContext";
 

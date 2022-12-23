@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 import AddDateComp from "../components/AddBookingComp/AddDateComp";
-import PageTitleComp from "../components/PageTitleComp";
+import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import AddTimeComp from "../components/AddBookingComp/AddTimeComp";
 
 function AddBooking() {

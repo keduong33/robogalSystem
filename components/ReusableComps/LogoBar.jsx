@@ -4,7 +4,7 @@ Design of the Logo Bar
 
 import Image from "next/image";
 import React from "react";
-import { useAuth } from "../authentication/AuthContext";
+import { useAuth } from "../../authentication/AuthContext";
 import { useRouter } from "next/router";
 
 function LogoBar() {

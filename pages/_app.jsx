@@ -3,7 +3,7 @@
 import "../styles/globals.css";
 import "../styles/Calendar.css";
 import { AuthContextProvider } from "../authentication/AuthContext";
-import LogoBar from "../components/LogoBar";
+import LogoBar from "../components/ReusableComps/LogoBar";
 
 export default function App({ Component, pageProps }) {
   return (
