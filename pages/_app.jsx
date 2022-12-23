@@ -1,7 +1,7 @@
 // Any design applied here will be applied globally across all the pages
 
 import "../styles/globals.css";
-import "../styles/calendar.css";
+import "../styles/Calendar.css";
 import { AuthContextProvider } from "../authentication/AuthContext";
 import LogoBar from "../components/LogoBar";
 

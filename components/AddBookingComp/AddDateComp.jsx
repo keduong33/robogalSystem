@@ -5,9 +5,9 @@ Design of the Calendar Component
 import React from "react";
 import { Calendar } from "react-calendar";
 
-function CalendarComp({ date, setDate }) {
+function AddDateComp({ date, setDate, setDatePicked }) {
   return (
-    <div>
+    <div className="flex flex-col bg-gray-500">
       <div>
         <Calendar
           onChange={setDate}
@@ -18,13 +18,19 @@ function CalendarComp({ date, setDate }) {
           showNeighboringMonth={false}
           formatShortWeekday={(locale, date) => date.toString().substring(0, 1)}
         />
-        <div>
-          <button>Choose Time</button>
-        </div>
+      </div>
+      <div className="self-end">
+        <button
+          onClick={() => {
+            setDatePicked(true);
+          }}
+        >
+          Choose Time
+        </button>
       </div>
       <hr></hr>
     </div>
   );
 }
 
-export default CalendarComp;
+export default AddDateComp;

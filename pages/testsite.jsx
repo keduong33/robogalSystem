@@ -32,10 +32,10 @@ const Test = () => {
       {/* <a href="calendar">Calendar</a> */}
       <button
         onClick={() => {
-          router.push("calendar");
+          router.push("addBooking");
         }}
       >
-        Calendar
+        Add Booking
       </button>
     </div>
   );
