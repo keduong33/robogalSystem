@@ -38,8 +38,12 @@ function AddBooking() {
   return (
     <div className="flex flex-col">
       {/* Page title */}
+      {/* Replace Page Title and Description */}
       <div>
-        <PageTitleComp />
+        <PageTitleComp
+          pageTitle="Add booking"
+          pageDescription="Page for booking"
+        />
       </div>
 
       {/* Adding Components */}
