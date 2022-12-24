@@ -21,6 +21,7 @@ function AddDateComp({ date, setDate, setDatePicked }) {
       </div>
       <div className="self-end">
         <button
+          className="blueButton"
           onClick={() => {
             setDatePicked(true);
           }}
