@@ -8,7 +8,7 @@ import { Calendar } from "react-calendar";
 function AddDateComp({ date, setDate, setDatePicked }) {
   return (
     <div className="flex flex-col bg-gray-500">
-      <div>
+      <div className="">
         <Calendar
           onChange={setDate}
           value={date}
@@ -19,14 +19,14 @@ function AddDateComp({ date, setDate, setDatePicked }) {
           formatShortWeekday={(locale, date) => date.toString().substring(0, 1)}
         />
       </div>
-      <div className="self-end">
+      <div className="self-end mr-2 my-2">
         <button
           className="blueButton"
           onClick={() => {
             setDatePicked(true);
           }}
         >
-          Choose Time
+          Choose Date
         </button>
       </div>
       <hr></hr>

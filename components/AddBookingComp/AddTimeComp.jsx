@@ -3,7 +3,13 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import React, { useState } from "react";
 import { TextField, formControlClasses } from "@mui/material";
 
-function AddTimeComp({ startTime, setStartTime, endTime, setEndTime }) {
+function AddTimeComp({
+  startTime,
+  setStartTime,
+  endTime,
+  setEndTime,
+  setTimePicked,
+}) {
   const [startTimeFormatError, setStartTimeFormatError] = useState(false);
   const [startTimeMinuteStepError, setStartTimeMinuteStepError] =
     useState(false);
@@ -12,11 +18,12 @@ function AddTimeComp({ startTime, setStartTime, endTime, setEndTime }) {
   const [endTimeFormatError, setEndTimeFormatError] = useState(false);
   return (
     <div>
-      <div className="flex flex-col">
+      <div className="flex flex-col flex-wrap items-end">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           {/* Start time */}
           <div className="mb-5">
             <TimePicker
+              showToolbar={false}
               label="Start Time"
               value={startTime}
               minutesStep={5}
@@ -55,6 +62,7 @@ function AddTimeComp({ startTime, setStartTime, endTime, setEndTime }) {
           {/* End time */}
           <div className="">
             <TimePicker
+              showToolbar={false}
               label="End Time"
               value={endTime}
               minutesStep={5}
@@ -96,6 +104,17 @@ function AddTimeComp({ startTime, setStartTime, endTime, setEndTime }) {
             />
           </div>
         </LocalizationProvider>
+        {/* Button */}
+        <div className="self-end">
+          <button
+            className="blueButton"
+            onClick={() => {
+              setTimePicked(true);
+            }}
+          >
+            Choose Time
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import { useAuth } from "../authentication/AuthContext";
 import AddDateComp from "../components/AddBookingComp/AddDateComp";
 import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import AddTimeComp from "../components/AddBookingComp/AddTimeComp";
+import AddSessionTypeComp from "../components/AddBookingComp/AddSessionTypeComp";
 
 function AddBooking() {
   // Basic authentication check
@@ -22,6 +23,7 @@ function AddBooking() {
   const [datePicked, setDatePicked] = useState(false);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
+  const [timePicked, setTimePicked] = useState(false);
 
   return (
     <div className="flex flex-col">
@@ -31,9 +33,9 @@ function AddBooking() {
       </div>
 
       {/* Adding Components */}
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-3 mx-auto">
         {/* Date Component */}
-        <div className="max-w-fit">
+        <div className="max-w-full ">
           <AddDateComp
             date={date}
             setDate={setDate}
@@ -45,16 +47,17 @@ function AddBooking() {
         </div>
 
         {/* Time Component */}
-        {date && datePicked ? (
+        {date && datePicked && (
           <AddTimeComp
             startTime={startTime}
             endTime={endTime}
             setStartTime={setStartTime}
             setEndTime={setEndTime}
+            setTimePicked={setTimePicked}
           />
-        ) : null}
+        )}
 
-        {startTime && endTime ? <div></div> : null}
+        {startTime && endTime && timePicked && <AddSessionTypeComp />}
       </div>
     </div>
   );
