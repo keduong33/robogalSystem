@@ -9,6 +9,7 @@ import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import AddTimeComp from "../components/AddBookingComp/AddTimeComp";
 import AddSessionTypeComp from "../components/AddBookingComp/AddSessionTypeComp";
 import AddLocationComp from "../components/AddBookingComp/AddLocationComp";
+import ConfirmComp from "../components/AddBookingComp/ConfirmComp";
 
 function AddBooking() {
   // Basic authentication check
@@ -80,6 +81,17 @@ function AddBooking() {
           </div>
         )}
       </div>
+
+      {/* Confirm Booking component */}
+      {datePicked && timePicked && sessionType && locationType ? (
+        <div>
+          <ConfirmComp eligible={true} />
+        </div>
+      ) : (
+        <div>
+          <ConfirmComp eligible={false} />
+        </div>
+      )}
     </div>
   );
 }

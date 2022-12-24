@@ -26,7 +26,7 @@ function AddDateComp({ date, setDate, setDatePicked }) {
             setDatePicked(true);
           }}
         >
-          Choose Date
+          Choose Time
         </button>
       </div>
     </div>

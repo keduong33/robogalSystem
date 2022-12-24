@@ -110,7 +110,7 @@ function AddTimeComp({
               setTimePicked(true);
             }}
           >
-            Choose Time
+            Set Time
           </button>
         </div>
       </div>
