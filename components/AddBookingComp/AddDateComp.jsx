@@ -7,8 +7,8 @@ import { Calendar } from "react-calendar";
 
 function AddDateComp({ date, setDate, setDatePicked }) {
   return (
-    <div className="flex flex-col bg-gray-500">
-      <div className="">
+    <div className="flex flex-col bg-transparent customBorder">
+      <div>
         <Calendar
           onChange={setDate}
           value={date}
@@ -29,7 +29,6 @@ function AddDateComp({ date, setDate, setDatePicked }) {
           Choose Date
         </button>
       </div>
-      <hr></hr>
     </div>
   );
 }

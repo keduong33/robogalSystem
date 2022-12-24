@@ -8,6 +8,7 @@ import AddDateComp from "../components/AddBookingComp/AddDateComp";
 import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import AddTimeComp from "../components/AddBookingComp/AddTimeComp";
 import AddSessionTypeComp from "../components/AddBookingComp/AddSessionTypeComp";
+import AddLocationComp from "../components/AddBookingComp/AddLocationComp";
 
 function AddBooking() {
   // Basic authentication check
@@ -18,12 +19,20 @@ function AddBooking() {
     router.push("login");
   }
 
-  // Functionalities
+  // Date Data
   const [date, setDate] = useState(null);
   const [datePicked, setDatePicked] = useState(false);
+
+  // Time Data
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [timePicked, setTimePicked] = useState(false);
+
+  // Session Data
+  const [sessionType, setSessionType] = useState(null);
+
+  // Location Data
+  const [locationType, setLocationType] = useState(null);
 
   return (
     <div className="flex flex-col">
@@ -33,9 +42,9 @@ function AddBooking() {
       </div>
 
       {/* Adding Components */}
-      <div className="grid grid-cols-3 mx-auto">
+      <div className="grid grid-cols-3 gap-3 mx-auto">
         {/* Date Component */}
-        <div className="max-w-full ">
+        <div>
           <AddDateComp
             date={date}
             setDate={setDate}
@@ -57,7 +66,19 @@ function AddBooking() {
           />
         )}
 
-        {startTime && endTime && timePicked && <AddSessionTypeComp />}
+        {/* Session Type & Location Component */}
+        {startTime && endTime && timePicked && (
+          <div>
+            <AddSessionTypeComp
+              sessionType={sessionType}
+              setSessionType={setSessionType}
+            />
+            <AddLocationComp
+              locationType={locationType}
+              setLocationType={setLocationType}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

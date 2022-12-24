@@ -23,7 +23,6 @@ function AddTimeComp({
           {/* Start time */}
           <div className="mb-5">
             <TimePicker
-              showToolbar={false}
               label="Start Time"
               value={startTime}
               minutesStep={5}
@@ -62,7 +61,6 @@ function AddTimeComp({
           {/* End time */}
           <div className="">
             <TimePicker
-              showToolbar={false}
               label="End Time"
               value={endTime}
               minutesStep={5}

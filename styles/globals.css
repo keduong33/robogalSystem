@@ -19,6 +19,11 @@
   @apply bg-green-700;
 }
 
+.customBorder{
+  @apply border-gray-500 hover:border-gray-800 rounded-lg
+  border;
+}
+
 
 @media (prefers-color-scheme: dark) {
   html {
