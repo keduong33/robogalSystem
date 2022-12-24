@@ -45,10 +45,7 @@ function RegisterComp({ formDetails, setFormDetails, handleSignup }) {
           />
         </div>
         <div className="flex flex-col justify-between">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full mt-6"
-            type="submit"
-          >
+          <button className="blueButton" type="submit">
             Register
           </button>
         </div>
@@ -57,7 +54,7 @@ function RegisterComp({ formDetails, setFormDetails, handleSignup }) {
       <div className="mt-2 flex">
         <button
           type="button"
-          className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mb-2 w-full"
+          className="blueButton focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mb-2 w-full"
         >
           <svg
             className="mr-2 -ml-1 w-4 h-4"

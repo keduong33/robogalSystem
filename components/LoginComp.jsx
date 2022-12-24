@@ -51,20 +51,14 @@ function LoginComp({ setFormDetails, formDetails, handleLogin }) {
           >
             Forgot Password?
           </a>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full"
-            type="submit"
-          >
+          <button className="blueButton" type="submit">
             Sign In
           </button>
         </div>
       </form>
       {/* Sign in with Google Button */}
       <div className="mt-2 flex">
-        <button
-          type="button"
-          className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mb-2 w-full"
-        >
+        <button className="blueButton rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mb-2 w-full">
           <svg
             className="mr-2 -ml-1 w-4 h-4"
             aria-hidden="true"

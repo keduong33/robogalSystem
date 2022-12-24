@@ -8,7 +8,17 @@
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    
 }
+
+.blueButton{
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-full items-center;
+}
+
+.greenButton{
+  @apply bg-green-700;
+}
+
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -18,6 +28,8 @@
     color: white;
     background: black;
   }
+
+
 }
 
 label{

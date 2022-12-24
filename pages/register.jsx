@@ -4,7 +4,6 @@ Functionalities and Design of the REGISTER Page
 
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import LogoBar from "../components/LogoBar";
 import RegisterComp from "../components/RegisterComp";
 import { useAuth } from "../authentication/AuthContext";
 
