@@ -13,13 +13,14 @@ export default function App({ Component, pageProps }) {
         from-blue-50
         via-blue-400
         to-blue-200
-        min-h-screen"
+        min-h-screen
+        "
     >
       <AuthContextProvider>
         <div>
           <LogoBar />
         </div>
-        <div>
+        <div className="px-10">
           <Component {...pageProps} />
         </div>
       </AuthContextProvider>

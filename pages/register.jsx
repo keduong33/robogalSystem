@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import RegisterComp from "../components/RegisterComp";
 import { useAuth } from "../authentication/AuthContext";
+import { isAuthenticated } from "../components/SecurityCheck";
 
 function Register() {
   const router = useRouter();
@@ -17,7 +18,7 @@ function Register() {
   });
 
   //basic authentication check --> redirect to default page
-  if (user) {
+  if (isAuthenticated(user)) {
     router.push("testsite");
   }
 

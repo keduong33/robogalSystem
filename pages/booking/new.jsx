@@ -3,20 +3,21 @@ Functionalities and Design of the Calendar Page
  */
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { useAuth } from "../authentication/AuthContext";
-import AddDateComp from "../components/AddBookingComp/AddDateComp";
-import PageTitleComp from "../components/ReusableComps/PageTitleComp";
-import AddTimeComp from "../components/AddBookingComp/AddTimeComp";
-import AddSessionTypeComp from "../components/AddBookingComp/AddSessionTypeComp";
-import AddLocationComp from "../components/AddBookingComp/AddLocationComp";
-import ConfirmComp from "../components/AddBookingComp/ConfirmComp";
+import { useAuth } from "../../authentication/AuthContext";
+import AddDateComp from "../../components/AddBookingComp/AddDateComp";
+import PageTitleComp from "../../components/ReusableComps/PageTitleComp";
+import AddTimeComp from "../../components/AddBookingComp/AddTimeComp";
+import AddSessionTypeComp from "../../components/AddBookingComp/AddSessionTypeComp";
+import AddLocationComp from "../../components/AddBookingComp/AddLocationComp";
+import ConfirmComp from "../../components/AddBookingComp/ConfirmComp";
+import { isAuthenticated } from "../../components/SecurityCheck";
 
-function AddBooking() {
+function NewBooking() {
   // Basic authentication check
   const router = useRouter();
   const { user } = useAuth();
 
-  if (!user) {
+  if (!isAuthenticated(user)) {
     router.push("login");
   }
 
@@ -43,13 +44,14 @@ function AddBooking() {
         <PageTitleComp
           pageTitle="Add booking"
           pageDescription="Page for booking"
+          hasArrow={true}
         />
       </div>
 
       {/* Adding Components */}
-      <div className="grid grid-cols-3 gap-3 mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 grid-flow-row-dense mx-auto sm:mx-5 lg:mx-60">
         {/* Date Component */}
-        <div>
+        <div className="min-w-fit max-w-fit col-span-2 mx-auto sm:col-span-1 ">
           <AddDateComp
             date={date}
             setDate={setDate}
@@ -62,18 +64,20 @@ function AddBooking() {
 
         {/* Time Component */}
         {date && datePicked && (
-          <AddTimeComp
-            startTime={startTime}
-            endTime={endTime}
-            setStartTime={setStartTime}
-            setEndTime={setEndTime}
-            setTimePicked={setTimePicked}
-          />
+          <div className="min-w-fit">
+            <AddTimeComp
+              startTime={startTime}
+              endTime={endTime}
+              setStartTime={setStartTime}
+              setEndTime={setEndTime}
+              setTimePicked={setTimePicked}
+            />
+          </div>
         )}
 
         {/* Session Type & Location Component */}
         {startTime && endTime && timePicked && (
-          <div>
+          <div className="min-w-fit">
             <AddSessionTypeComp
               sessionType={sessionType}
               setSessionType={setSessionType}
@@ -100,4 +104,4 @@ function AddBooking() {
   );
 }
 
-export default AddBooking;
+export default NewBooking;

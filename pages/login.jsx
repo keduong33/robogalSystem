@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import LoginComp from "../components/LoginComp";
 import { useRouter } from "next/router";
 import { useAuth } from "../authentication/AuthContext";
+import { isAuthenticated } from "../components/SecurityCheck";
 
 function Login() {
   const router = useRouter();
@@ -16,7 +17,7 @@ function Login() {
   });
 
   //basic authentication check --> redirect to default page
-  if (user) {
+  if (isAuthenticated(user)) {
     router.push("testsite");
   }
 
@@ -24,9 +25,8 @@ function Login() {
     e.preventDefault();
     try {
       await login(formDetails.email, formDetails.password);
-      router.push("testsite");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

@@ -1,7 +1,7 @@
 import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import React, { useState } from "react";
-import { TextField, formControlClasses } from "@mui/material";
+import { TextField } from "@mui/material";
 
 function AddTimeComp({
   startTime,
@@ -16,9 +16,23 @@ function AddTimeComp({
   const [endTimeMinTimeError, setEndTimeMinTimeError] = useState(false);
   const [endTimeMinuteStepError, setEndTimeMinuteStepError] = useState(false);
   const [endTimeFormatError, setEndTimeFormatError] = useState(false);
+  let warning = false;
+
+  /*---------------------------------------------*/
+  const checkValidTime = () => {
+    let validTime = true;
+    if (startTime >= endTime) {
+      validTime = false;
+      setTimePicked(false);
+    } else {
+      warning = false;
+    }
+    return validTime;
+  };
+
   return (
     <div>
-      <div className="flex flex-col flex-wrap items-end">
+      <div className="flex flex-col flex-wrap items-center lg:items-end">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           {/* Start time */}
           <div className="mb-5">
@@ -30,10 +44,15 @@ function AddTimeComp({
                 setStartTimeFormatError(false);
                 setStartTimeMinuteStepError(false);
                 setStartTime(newTime);
+                checkValidTime();
+              }}
+              onClose={() => {
+                checkValidTime();
               }}
               onError={(reason, value) => {
                 if (reason == "minutesStep") {
                   setStartTimeMinuteStepError(true);
+                  setValidTime(false);
                 } else if (reason == "invalidDate") {
                   setStartTimeFormatError(true);
                 }
@@ -70,6 +89,10 @@ function AddTimeComp({
                 setEndTimeMinuteStepError(false);
                 setEndTimeFormatError(false);
                 setEndTime(newTime);
+                checkValidTime();
+              }}
+              onClose={() => {
+                checkValidTime();
               }}
               onError={(reason, value) => {
                 if (reason == "minTime") {
@@ -102,17 +125,31 @@ function AddTimeComp({
             />
           </div>
         </LocalizationProvider>
+
         {/* Button */}
-        <div className="self-end">
+        <div className="lg:self-end">
           <button
             className="blueButton"
             onClick={() => {
-              setTimePicked(true);
+              if (checkValidTime()) {
+                warning = false;
+                setTimePicked(true);
+              } else {
+                warning = true;
+                setTimePicked(false);
+              }
             }}
           >
             Set Time
           </button>
         </div>
+
+        {/* Helper text */}
+        {warning && (
+          <div className="text-red-600">
+            Please pick appropriate Start and End Time
+          </div>
+        )}
       </div>
     </div>
   );

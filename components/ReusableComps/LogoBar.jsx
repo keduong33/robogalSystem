@@ -28,7 +28,7 @@ function LogoBar() {
               height={200}
               className="w-4/12 md:w-3/12 lg:w-1/6 hover:cursor-pointer"
               onClick={() => {
-                router.push("testsite");
+                router.push("/");
               }}
             />
           </div>
@@ -39,7 +39,7 @@ function LogoBar() {
               className="hover:cursor-pointer"
               size={50}
               onClick={() => {
-                router.push("user");
+                router.push("/user");
               }}
             />
           </div>
