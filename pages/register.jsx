@@ -11,7 +11,6 @@ import { isAuthenticated } from "../components/SecurityCheck";
 function Register() {
   const router = useRouter();
   const { user, signup } = useAuth();
-  console.log(user);
   const [formDetails, setFormDetails] = useState({
     email: "",
     password: "",
@@ -19,7 +18,7 @@ function Register() {
 
   //basic authentication check --> redirect to default page
   if (isAuthenticated(user)) {
-    router.push("testsite");
+    router.push("/");
   }
 
   const handleSignup = async (e) => {

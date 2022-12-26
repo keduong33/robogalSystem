@@ -39,5 +39,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Config Folder
 The configuration file of firebase is stored in here --> Replace the SDK to hook it up to your database
 
-  ## OTHERS
+### Styles Folder
+This folder has all the global styles (default and customised) --> modify the 
+
+## OTHERS
 - Nextjs has some naming conventions itself so be careful when you do it --> It will warn you anw, don't worry about it

@@ -18,7 +18,7 @@ function Login() {
 
   //basic authentication check --> redirect to default page
   if (isAuthenticated(user)) {
-    router.push("testsite");
+    router.push("/");
   }
 
   const handleLogin = async (e) => {

@@ -18,7 +18,6 @@ function User() {
     } catch (error) {
       // console.log(error);
     }
-    testsite;
   };
 
   return (
