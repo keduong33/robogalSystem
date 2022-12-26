@@ -12,7 +12,7 @@ function Home() {
 
   // Basic authentication check
   if (!isAuthenticated(user)) {
-    router.push("login");
+    router.push("/login");
   }
 
   return (

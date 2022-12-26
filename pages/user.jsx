@@ -8,7 +8,7 @@ function User() {
   const router = useRouter();
 
   if (!isAuthenticated(user)) {
-    router.push("login");
+    router.push("/login");
   }
 
   const handleLogout = async (e) => {
