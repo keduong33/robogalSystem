@@ -1,9 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
-
-First, run the development server:
-
+### Setup:
+Install the dependencies:
+```bash
+npm install
+```
+### Test Run
+Run the development server:
 ```bash
 npm run dev
 # or
@@ -12,23 +14,30 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## File Structure
+### Pages Folder
+- The files in this folder should act as skeletons of the page. It should have minimum customized CSS and number of functionalities
+- The file should mostly call components from the Component folder
+- **index** --> OUR USER HOMEPAGE
+- *Current Convention*:
+ - I try to use folders as little as I can --> because nextjs routes pages like a directory
+ - The naming I am not too sure for now but I try to make it as simple and easy to understand as possible
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Component Folder
+- Most of the files in this folder should be reusable in different context
+- These files will have the functionalities and design of the feature
+- *Current convention*:
+  - Most of the files end with **Comp** to indicate it is a component (except for SecurityCheck --> right now i'm using it like a class? Maybe in the future I'll create a folder outside for Security Only Purpose)
+  - The naming should be easy to understand as it is written/said
+  - If multiple components is part of a feature, we should put it in a folder
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Authentication Folder
+- The file has different functions that manage the authentication process of user (login, logout, etc.)
+- If you wanna add different sign-in methods, do it here
+- I still haven't implemented Google Sign-in :P
 
-## Learn More
+### Config Folder
+The configuration file of firebase is stored in here --> Replace the SDK to hook it up to your database
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  ## OTHERS
+- Nextjs has some naming conventions itself so be careful when you do it --> It will warn you anw, don't worry about it

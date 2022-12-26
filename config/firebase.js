@@ -2,18 +2,17 @@
 The configuration of the Firebase
  */
 
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
-// Your web app's Firebase configuration
+// Firebase configuration --> Replace this
 const firebaseConfig = {
   apiKey: "AIzaSyCf1pFf7qNB0AS80e_iUVyHY37eYncRA7c",
   authDomain: "test-app-961ac.firebaseapp.com",
   projectId: "test-app-961ac",
   storageBucket: "test-app-961ac.appspot.com",
   messagingSenderId: "551104753371",
-  appId: "1:551104753371:web:23f05a1766cd668dca26fe"
+  appId: "1:551104753371:web:23f05a1766cd668dca26fe",
 };
 
 // Initialize Firebase

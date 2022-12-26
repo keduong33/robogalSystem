@@ -6,7 +6,7 @@
 - [ ] Have not tested the Google Login yet
 - [ ] Work out the security of route between pages --> Ensure user does not over-extend their access to different pages --> References:
     - https://daily.dev/blog/authentication-in-nextjs
-- [ ] Change testsite to something else --> right now it acts as a dashboard/index
+- [X] Change testsite to something else --> right now it acts as a dashboard/index
 - [ ] Right now, the calendar takes a while to render --> Have to optimise it or use other thing instead of MUI
 
 --> Testing account:
