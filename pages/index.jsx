@@ -37,6 +37,18 @@ function Home() {
       <div>
         <BookingListComp />
       </div>
+
+      {/* Add new Booking */}
+      <div>
+        <button
+          className="blueButton max-w-fit"
+          onClick={() => {
+            router.push("/booking/new");
+          }}
+        >
+          New Booking
+        </button>
+      </div>
     </div>
   );
 }
