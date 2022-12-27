@@ -8,6 +8,8 @@
     - https://daily.dev/blog/authentication-in-nextjs
 - [X] Change testsite to something else --> right now it acts as a dashboard/index
 - [ ] Right now, the calendar takes a while to render --> Have to optimise it or use other thing instead of MUI
+- [ ] Add Location Search Bar
+- [ ] Put down the base of the add new booking: add session list and session info
 
 --> Testing account:
 username: testing@gmail.com
