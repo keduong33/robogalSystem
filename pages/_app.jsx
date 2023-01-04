@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
         <div>
           <LogoBarComp />
         </div>
-        <div className="px-10">
+        <div className="px-10 pb-5">
           <Component {...pageProps} />
         </div>
       </AuthContextProvider>

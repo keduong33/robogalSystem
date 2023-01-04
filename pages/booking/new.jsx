@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../authentication/AuthContext";
 import PageTitleComp from "../../components/ReusableComps/PageTitleComp";
 import { isAuthenticated } from "../../components/SecurityCheck";
-import BookingDateTimeComp from "../../components/NewBookingComp/BookingDateTimeComp";
+import SessionListComp from "../../components/CardComp/SessionListComp";
 
 function NewBooking() {
   // Basic authentication check
@@ -20,7 +20,7 @@ function NewBooking() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-full">
       {/* Page title */}
       {/* Replace Page Title and Description */}
       <div>
@@ -30,26 +30,10 @@ function NewBooking() {
           hasArrow={true}
         />
       </div>
-      {!lessonTypePicked && (
-        <div>
-          <div>Here are the cards place.</div>
-          <div>
-            <button
-              onClick={() => {
-                setLessonTypPicked(true);
-                console.log(lessonTypePicked);
-              }}
-            >
-              Go to calendar
-            </button>
-          </div>
-        </div>
-      )}
-      {lessonTypePicked && (
-        <div>
-          <BookingDateTimeComp />
-        </div>
-      )}
+
+      <div className="h-full pt-4 w-full">
+        <SessionListComp />
+      </div>
     </div>
   );
 }

@@ -1,9 +1,10 @@
+// The main component of a new booking --> it calls other smaller components
 import React, { useState } from "react";
-import AddDateComp from "../../components/NewBookingComp/AddBookingComp/AddDateComp";
-import AddTimeComp from "../../components/NewBookingComp/AddBookingComp/AddTimeComp";
-import AddSessionTypeComp from "../../components/NewBookingComp/AddBookingComp/AddSessionTypeComp";
-import AddLocationComp from "../../components/NewBookingComp/AddBookingComp/AddLocationComp";
-import ConfirmComp from "../../components/NewBookingComp/AddBookingComp/ConfirmComp";
+import AddDateComp from "./SmallerBookingComps/DateComp";
+import AddTimeComp from "./SmallerBookingComps/TimeComp";
+import AddSessionTypeComp from "./SmallerBookingComps/SessionTypeComp";
+import AddLocationComp from "./SmallerBookingComps/LocationComp";
+import ConfirmComp from "./SmallerBookingComps/ConfirmationComp";
 
 function BookingDateTimeComp() {
   // Date Data
@@ -20,6 +21,7 @@ function BookingDateTimeComp() {
 
   // Location Data
   const [locationType, setLocationType] = useState(null);
+  if (!open) return null;
   return (
     <div>
       {/* Adding Components */}

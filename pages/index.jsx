@@ -1,14 +1,17 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 import { isAuthenticated } from "../components/SecurityCheck";
 import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import { MdOutlineWavingHand } from "react-icons/md";
 import BookingListComp from "../components/BookingListComp";
+import BookingDetailComp from "../components/NewBookingComp/BookingDetail";
 
 function Home() {
   const { user } = useAuth();
   const router = useRouter();
+
+  const [test, setTest] = useState(false);
 
   // Basic authentication check
   if (!isAuthenticated(user)) {
@@ -46,8 +49,13 @@ function Home() {
             router.push("/booking/new");
           }}
         >
-          New Booking
+          Create New Booking
         </button>
+        <br></br>
+        <button className="blueButton max-w-fit" onClick={() => setTest(!test)}>
+          Test Booking DateTime Comp
+        </button>
+        {test && <BookingDetailComp />}
       </div>
     </div>
   );
