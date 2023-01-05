@@ -3,14 +3,35 @@ Design of the Logo Bar
  */
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../../authentication/AuthContext";
 import { useRouter } from "next/router";
 import { FaRegUserCircle } from "react-icons/fa";
+import { Divider, Menu, MenuItem } from "@mui/material";
 
 function LogoBar() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const router = useRouter();
+
+  // For the account menu
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+    console.log(anchorEl);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  //Logout function
+  const handleLogout = async (e) => {
+    try {
+      await logout(user.email, user.password);
+    } catch (error) {
+      // console.log(error);
+    }
+  };
 
   // dynamic logobar --> so when people login, the user icon appears on the right
   // ofc this is for now
@@ -38,9 +59,7 @@ function LogoBar() {
             <FaRegUserCircle
               className="hover:cursor-pointer"
               size={50}
-              onClick={() => {
-                router.push("/user");
-              }}
+              onClick={handleClick}
             />
           </div>
         </div>
@@ -54,6 +73,41 @@ function LogoBar() {
             className="w-4/12 md:w-3/12 lg:w-1/6"
           />
         </div>
+      )}
+      {anchorEl && (
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          transformOrigin={{ horizontal: "right", vertical: "top" }}
+        >
+          <MenuItem className="hover:cursor-default">
+            <FaRegUserCircle size={30} />
+            {user.email}
+          </MenuItem>
+          <Divider />
+          <MenuItem
+            onClick={() => {
+              handleClose();
+              router.push("/user");
+            }}
+          >
+            Profile
+          </MenuItem>
+          <MenuItem onClick={handleClose}>Notifications</MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose();
+              handleLogout();
+            }}
+          >
+            Logout
+          </MenuItem>
+        </Menu>
       )}
     </div>
   );

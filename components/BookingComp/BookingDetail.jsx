@@ -6,7 +6,7 @@ import AddSessionTypeComp from "./SmallerBookingComps/SessionTypeComp";
 import AddLocationComp from "./SmallerBookingComps/LocationComp";
 import ConfirmComp from "./SmallerBookingComps/ConfirmationComp";
 
-function BookingDateTimeComp() {
+function BookingDetailComp() {
   // Date Data
   const [date, setDate] = useState(null);
   const [datePicked, setDatePicked] = useState(false);
@@ -80,4 +80,4 @@ function BookingDateTimeComp() {
   );
 }
 
-export default BookingDateTimeComp;
+export default BookingDetailComp;
