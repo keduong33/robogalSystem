@@ -8,6 +8,7 @@ import { useAuth } from "../../authentication/AuthContext";
 import { useRouter } from "next/router";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Divider, Menu, MenuItem } from "@mui/material";
+import NotificationComp from "./NotificationComp";
 
 function LogoBar() {
   const { user, logout } = useAuth();
@@ -32,6 +33,9 @@ function LogoBar() {
       // console.log(error);
     }
   };
+
+  //For Notification
+  const [openNotification, setOpenNotification] = useState(false);
 
   // dynamic logobar --> so when people login, the user icon appears on the right
   // ofc this is for now
@@ -74,6 +78,7 @@ function LogoBar() {
           />
         </div>
       )}
+      {/* The MENU --> Maybe i can make it into a account menu*/}
       {anchorEl && (
         <Menu
           anchorEl={anchorEl}
@@ -98,7 +103,14 @@ function LogoBar() {
           >
             Profile
           </MenuItem>
-          <MenuItem onClick={handleClose}>Notifications</MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose();
+              setOpenNotification(true);
+            }}
+          >
+            Notifications
+          </MenuItem>
           <MenuItem
             onClick={() => {
               handleClose();
@@ -109,6 +121,10 @@ function LogoBar() {
           </MenuItem>
         </Menu>
       )}
+      <NotificationComp
+        openNotification={openNotification}
+        setOpenNotification={setOpenNotification}
+      />
     </div>
   );
 }
