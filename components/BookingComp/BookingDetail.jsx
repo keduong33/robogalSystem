@@ -1,10 +1,10 @@
 // The main component of a new booking --> it calls other smaller components
 import React, { useState } from "react";
-import AddDateComp from "./SmallerBookingComps/DateComp";
-import AddTimeComp from "./SmallerBookingComps/TimeComp";
-import AddSessionTypeComp from "./SmallerBookingComps/SessionTypeComp";
-import AddLocationComp from "./SmallerBookingComps/LocationComp";
-import ConfirmComp from "./SmallerBookingComps/ConfirmationComp";
+import AddDateComp from "./DetailComps/DateComp";
+import AddTimeComp from "./DetailComps/TimeComp";
+import AddSessionTypeComp from "./DetailComps/SessionTypeComp";
+import AddLocationComp from "./DetailComps/LocationComp";
+import ConfirmComp from "./DetailComps/ConfirmationComp";
 
 function BookingDetailComp() {
   // Date Data
