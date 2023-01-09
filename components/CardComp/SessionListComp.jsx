@@ -8,36 +8,30 @@ import {
   Typography,
 } from "@mui/material";
 import { MdLocationOn } from "react-icons/md";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FullSessionInfoComp from "./FullSessionInfoComp";
+import { getDocs, collection } from "@firebase/firestore";
+import { db } from "../../config/firebase";
 
 function SessionListComp() {
   const [moreInfo, setMoreInfo] = useState(false);
+  const [sessionList, setSessionList] = useState([]);
 
-  // Session Object --> An array will run loop through a list of session objs then we will supply them to the cards
-  const sessionObj1 = {
-    title: "Session Title",
-    shortDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    longDescription: "",
-    location: "In-person",
-  };
-  const sessionObj2 = {
-    title: "Session Title 2",
-    shortDescription:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    longDescription: "",
-    location: "In-person, Online",
-  };
+  useEffect(() => {
+    const getData = async () => {
+      const querySnapshot = await getDocs(collection(db, "session"));
+      let tempList = [];
+      querySnapshot.forEach((doc) => {
+        tempList.push(doc.data());
+      });
+      setSessionList(tempList);
+    };
+    return () => {
+      getData();
+    };
+  }, []);
 
-  const sessionList = [
-    sessionObj1,
-    sessionObj2,
-    sessionObj1,
-    sessionObj2,
-    sessionObj1,
-  ];
   return (
     <div>
       <div className="grid grid-flow-row grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -46,10 +40,9 @@ function SessionListComp() {
             className="max-w-full flex justify-center"
             key={sessionObj.title}
           >
-            {/* sx={{ width: 300, height: 270, borderRadius: "20px" }} */}
             <Card
               sx={{ borderRadius: "20px" }}
-              className="max-w-xs sm:w-80 lg:w-96 xl:max-w-xl h-72"
+              className="w-80 sm:w-80 lg:w-96 xl:max-w-xl h-72"
             >
               <CardHeader
                 title={
@@ -63,12 +56,13 @@ function SessionListComp() {
               />
               <CardContent>
                 <Typography
+                  component={"div"}
                   variant="body1"
                   className="overflow-auto text-ellipsis px-1 max-w-xs sm:w-64 lg:w-72 xl:w-full h-20 xl:h-24"
                 >
                   {sessionObj.shortDescription}
                 </Typography>
-                <Typography variant="body1" className="pt-3">
+                <Typography component={"div"} variant="body1" className="pt-3">
                   <Box className="flex">
                     <MdLocationOn />
                     {sessionObj.location}
