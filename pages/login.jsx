@@ -31,11 +31,11 @@ function Login() {
   };
 
   return (
-    <div className="h-full flex items-center justify-center">
+    <div className="flex h-full items-center">
       <LoginComp
-        setFormDetails={setFormDetails}
-        formDetails={formDetails}
-        handleLogin={handleLogin}
+          setFormDetails={setFormDetails}
+          formDetails={formDetails}
+          handleLogin={handleLogin}
       />
     </div>
   );

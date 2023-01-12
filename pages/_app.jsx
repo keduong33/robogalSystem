@@ -8,11 +8,11 @@ import LogoBarComp from "../components/ReusableComps/LogoBarComp";
 export default function App({ Component, pageProps }) {
   return (
     <div
-      className="h-full flex flex-col
+      className="h-screen flex flex-col
         bg-gradient-to-br
-        from-blue-50
-        via-blue-400
-        to-blue-200
+        from-blue-100
+        via-blue-300
+        to-blue-400
         min-h-screen
         "
     >
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
         <div>
           <LogoBarComp />
         </div>
-        <div className="px-10 pb-5">
+        <div className="px-10 pb-10 h-full">
           <Component {...pageProps} />
         </div>
       </AuthContextProvider>

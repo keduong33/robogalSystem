@@ -51,7 +51,7 @@ function LogoBar() {
               alt="Logo"
               width={200}
               height={200}
-              className="w-4/12 md:w-3/12 lg:w-1/6 hover:cursor-pointer"
+              className="hover:cursor-pointer max-h-32"
               onClick={() => {
                 router.push("/");
               }}
@@ -68,13 +68,12 @@ function LogoBar() {
           </div>
         </div>
       ) : (
-        <div className="flex justify-center">
+        <div className="flex justify-end">
           <Image
             src="/logo.png"
             alt="Logo"
             width={200}
             height={200}
-            className="w-4/12 md:w-3/12 lg:w-1/6"
           />
         </div>
       )}

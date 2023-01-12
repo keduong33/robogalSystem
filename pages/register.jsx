@@ -31,7 +31,7 @@ function Register() {
   };
 
   return (
-    <div className="h-full flex items-center justify-center">
+    <div className="flex h-full items-center">
       <RegisterComp
         formDetails={formDetails}
         setFormDetails={setFormDetails}
