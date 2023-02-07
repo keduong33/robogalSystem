@@ -1,4 +1,5 @@
-// The main component of a new booking --> it calls other smaller components
+// The main component when user creates a new booking --> it calls other smaller components
+// gotta move this one later one
 import React, { useState } from "react";
 import AddDateComp from "./DetailComps/DateComp";
 import AddTimeComp from "./DetailComps/TimeComp";

@@ -8,29 +8,14 @@ import {
   Typography,
 } from "@mui/material";
 import { MdLocationOn } from "react-icons/md";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FullSessionInfoComp from "./FullSessionInfoComp";
-import { getDocs, collection } from "@firebase/firestore";
-import { db } from "../../config/firebase";
+import GetDataListComp from "../ReusableComps/GetDataListComp";
 
 function SessionListComp() {
-  const [moreInfo, setMoreInfo] = useState(false);
-  const [sessionList, setSessionList] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const querySnapshot = await getDocs(collection(db, "session"));
-      let tempList = [];
-      querySnapshot.forEach((doc) => {
-        tempList.push(doc.data());
-      });
-      setSessionList(tempList);
-    };
-    return () => {
-      getData();
-    };
-  }, []);
+  const [moreInfo, setMoreInfo] = useState(false); //a flag to display more info on a session
+  let sessionList = GetDataListComp("sessionTemplate", "Bensua School");
 
   return (
     <div>

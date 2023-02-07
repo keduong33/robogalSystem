@@ -1,5 +1,5 @@
 /*
-Functionalities and Design of the Calendar Page
+  Component that has session templates for user to choose
  */
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -22,7 +22,7 @@ function NewBooking() {
   return (
     <div className="flex flex-col h-full">
       {/* Page title */}
-      {/* Replace Page Title and Description */}
+      {/* Replace Page Title and Description to customize */}
       <div>
         <PageTitleComp
           pageTitle="Select New Booking"

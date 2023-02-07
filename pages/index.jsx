@@ -4,8 +4,8 @@ import { useAuth } from "../authentication/AuthContext";
 import { isAuthenticated } from "../components/SecurityCheck";
 import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import { MdOutlineWavingHand } from "react-icons/md";
-import BookingListComp from "../components/BookingComps/BookingListComp";
 import BookingDetailComp from "../components/BookingComps/BookingDetail";
+import BookingList from "./booking/list";
 
 function Home() {
   const { user } = useAuth();
@@ -19,7 +19,7 @@ function Home() {
   } else
     return (
       <div>
-        {/* Page Title Component --> Modify Title & Desc */}
+        {/* Page Title Component --> Modify Title & Desc to customize*/}
         <div>
           <PageTitleComp
             pageTitle={
@@ -37,7 +37,7 @@ function Home() {
 
         {/* List of bookings */}
         <div>
-          <BookingListComp />
+          <BookingList />
         </div>
 
         {/* Add new Booking */}
