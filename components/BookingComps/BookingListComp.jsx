@@ -1,11 +1,10 @@
 import React from "react";
+import GetDataListComp from "../ReusableComps/GetDataListComp";
 
 function BookingListComp() {
-  return (
-    <div className="border">
-      This is where the list of bookings should be. Go to BookingListComp
-    </div>
-  );
+  let bookingList = GetDataListComp("session", "Bensua School");
+
+  return <div>Booking</div>;
 }
 
 export default BookingListComp;
