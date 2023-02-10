@@ -10,14 +10,14 @@ import { useEffect, useState } from "react";
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-  // Basic URL path check
-  useEffect(() => {
-    if (router.pathname == "/register") {
-      router.push("/register");
-    } else if (router.pathname != "/login") {
-      router.push("/login");
-    }
-  }, []);
+  // // Basic URL path check
+  // useEffect(() => {
+  //   if (router.pathname == "/register") {
+  //     router.push("/register");
+  //   } else if (router.pathname != "/login") {
+  //     router.push("/login");
+  //   }
+  // }, []);
 
   return (
     <div

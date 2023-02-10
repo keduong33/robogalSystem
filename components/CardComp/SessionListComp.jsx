@@ -12,10 +12,12 @@ import React, { useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FullSessionInfoComp from "./FullSessionInfoComp";
 import GetDataListComp from "../ReusableComps/GetDataListComp";
+import { useAuth } from "../../authentication/AuthContext";
 
 function SessionListComp() {
+  const { user } = useAuth();
   const [moreInfo, setMoreInfo] = useState(false); //a flag to display more info on a session
-  let sessionList = GetDataListComp("sessionTemplate", "Bensua School");
+  let sessionList = GetDataListComp("sessionTemplate", user);
 
   return (
     <div>

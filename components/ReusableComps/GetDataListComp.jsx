@@ -23,7 +23,6 @@ function GetDataListComp(requestedCollection, user) {
 }
 
 async function getUserRole(user) {
-  console.log(user);
   const docRef = doc(db, "user", user.uid);
   const docSnap = await getDoc(docRef);
   let role = null;
