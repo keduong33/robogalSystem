@@ -16,3 +16,10 @@
 --> Testing account:
 username: testing@gmail.com
 password: testing
+
+
+--> Admin account:
+
+username: admin@gmail.com
+
+password: adminaccount

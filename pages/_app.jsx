@@ -6,17 +6,15 @@ import { AuthContextProvider } from "../authentication/AuthContext";
 import LogoBarComp from "../components/ReusableComps/LogoBarComp";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { isAuthenticated } from "../components/SecurityCheck";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  let user = null;
 
-  // Basic authentication check
+  // Basic URL path check
   useEffect(() => {
-    if (router.pathname == "/register" && !isAuthenticated(user)) {
+    if (router.pathname == "/register") {
       router.push("/register");
-    } else if (router.pathname != "/login" && !isAuthenticated(user)) {
+    } else if (router.pathname != "/login") {
       router.push("/login");
     }
   }, []);

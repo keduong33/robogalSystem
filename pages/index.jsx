@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
-import { isAuthenticated } from "../components/SecurityCheck";
 import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import { MdOutlineWavingHand } from "react-icons/md";
 import BookingDetailComp from "../components/BookingComps/BookingDetail";
@@ -21,9 +20,7 @@ function Home() {
         <PageTitleComp
           pageTitle={
             <div className="flex">
-              <div className="self-center">
-                Welcome {user?.email}! Role: {user.r}{" "}
-              </div>
+              <div className="self-center">Welcome {user?.email}! </div>
               <MdOutlineWavingHand size={50} />
             </div>
           }

@@ -9,7 +9,6 @@ import { isAuthenticated } from "../../components/SecurityCheck";
 import SessionListComp from "../../components/CardComp/SessionListComp";
 
 function NewBooking() {
-  // Basic authentication check
   const router = useRouter();
   const { user } = useAuth();
   const [lessonType, setLessonType] = useState();
