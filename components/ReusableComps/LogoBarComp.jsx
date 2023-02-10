@@ -19,7 +19,7 @@ function LogoBar() {
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    console.log(anchorEl);
+    //console.log(anchorEl);
   };
   const handleClose = () => {
     setAnchorEl(null);

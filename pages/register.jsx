@@ -27,10 +27,9 @@ function Register() {
       e.preventDefault();
       try {
         await signup(formDetails.email, formDetails.password);
-        console.log(user);
         saveNewUser(user);
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     };
 
