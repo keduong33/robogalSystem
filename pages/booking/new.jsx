@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useAuth } from "../../authentication/AuthContext";
 import PageTitleComp from "../../components/ReusableComps/PageTitleComp";
 import { isAuthenticated } from "../../components/SecurityCheck";
-import SessionListComp from "../../components/CardComp/SessionListComp";
+import SessionTemplateListComp from "../../components/CardComp/SessionListTemplateComp";
 
 function NewBooking() {
   const router = useRouter();
@@ -30,7 +30,7 @@ function NewBooking() {
         </div>
 
         <div className="h-full pt-4 w-full">
-          <SessionListComp />
+          <SessionTemplateListComp />
         </div>
       </div>
     );

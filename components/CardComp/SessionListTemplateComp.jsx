@@ -14,7 +14,7 @@ import FullSessionInfoComp from "./FullSessionInfoComp";
 import GetDataListComp from "../ReusableComps/GetDataListComp";
 import { useAuth } from "../../authentication/AuthContext";
 
-function SessionListComp() {
+function SessionTemplateListComp() {
   const { user } = useAuth();
   const [moreInfo, setMoreInfo] = useState(false); //a flag to display more info on a session
   let sessionList = GetDataListComp("sessionTemplate", user);
@@ -79,4 +79,4 @@ function SessionListComp() {
   );
 }
 
-export default SessionListComp;
+export default SessionTemplateListComp;

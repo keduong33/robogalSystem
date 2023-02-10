@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 function BookingList() {
   const { user } = useAuth();
   const router = useRouter();
-  console.log(user);
 
   if (!isAuthenticated(user)) {
     router.push("/login");
