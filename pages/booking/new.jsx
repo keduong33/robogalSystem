@@ -15,10 +15,6 @@ function NewBooking() {
   const [lessonType, setLessonType] = useState();
   const [lessonTypePicked, setLessonTypPicked] = useState(false);
 
-  if (!isAuthenticated(user)) {
-    router.push("/login");
-  }
-
   return (
     <div className="flex flex-col h-full">
       {/* Page title */}

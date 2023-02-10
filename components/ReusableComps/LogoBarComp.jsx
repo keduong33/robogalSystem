@@ -29,6 +29,7 @@ function LogoBar() {
   const handleLogout = async (e) => {
     try {
       await logout(user.email, user.password);
+      router.push("/login");
     } catch (error) {
       // console.log(error);
     }

@@ -16,11 +16,6 @@ function Register() {
     password: "",
   });
 
-  //basic authentication check --> redirect to default page
-  if (isAuthenticated(user)) {
-    router.push("/");
-  }
-
   const handleSignup = async (e) => {
     e.preventDefault();
     try {

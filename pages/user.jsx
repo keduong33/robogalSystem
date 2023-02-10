@@ -7,14 +7,11 @@ function User() {
   const { user, logout } = useAuth();
   const router = useRouter();
 
-  if (!isAuthenticated(user)) {
-    router.push("/login");
-  }
-
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
       await logout(user.email, user.password);
+      router.push("/login");
     } catch (error) {
       // console.log(error);
     }
