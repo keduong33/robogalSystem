@@ -14,23 +14,27 @@ function NewBooking() {
   const [lessonType, setLessonType] = useState();
   const [lessonTypePicked, setLessonTypPicked] = useState(false);
 
-  return (
-    <div className="flex flex-col h-full">
-      {/* Page title */}
-      {/* Replace Page Title and Description to customize */}
-      <div>
-        <PageTitleComp
-          pageTitle="Select New Booking"
-          pageDescription="Choose a session to book"
-          hasArrow={true}
-        />
-      </div>
+  if (!isAuthenticated(user)) {
+    router.push("/login");
+  } else {
+    return (
+      <div className="flex flex-col h-full">
+        {/* Page title */}
+        {/* Replace Page Title and Description to customize */}
+        <div>
+          <PageTitleComp
+            pageTitle="Select New Booking"
+            pageDescription="Choose a session to book"
+            hasArrow={true}
+          />
+        </div>
 
-      <div className="h-full pt-4 w-full">
-        <SessionListComp />
+        <div className="h-full pt-4 w-full">
+          <SessionListComp />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default NewBooking;

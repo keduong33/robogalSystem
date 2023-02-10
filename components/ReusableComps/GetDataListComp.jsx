@@ -20,16 +20,20 @@ function GetDataListComp(requestedCollection, user) {
   }, []);
 
   return dataList;
-}
 
-async function getUserRole(user) {
-  const docRef = doc(db, "user", user.uid);
-  const docSnap = await getDoc(docRef);
-  let role = null;
-  if (docSnap.exists()) {
-    role = docSnap.get("role");
+  async function getUserRole(user) {
+    let role = null;
+    try {
+      const docRef = doc(db, "user", user.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        role = docSnap.get("role");
+      }
+      return role;
+    } catch (error) {
+      return role;
+    }
   }
-  return role;
 }
 
 export default GetDataListComp;

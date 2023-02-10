@@ -18,10 +18,8 @@ function Register() {
     password: "",
   });
 
-  //basic authentication check --> redirect to default page
   if (isAuthenticated(user)) {
     router.push("/");
-    return null;
   } else {
     const handleSignup = async (e) => {
       e.preventDefault();
@@ -43,13 +41,13 @@ function Register() {
       </div>
     );
   }
-}
 
-async function saveNewUser(user) {
-  await setDoc(doc(db, "user", user.uid), {
-    name: user.email,
-    role: "user",
-  });
+  async function saveNewUser(user) {
+    await setDoc(doc(db, "user", user.uid), {
+      name: user.email,
+      role: "user",
+    });
+  }
 }
 
 export default Register;

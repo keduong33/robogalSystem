@@ -11,6 +11,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../config/firebase";
+import { useRouter } from "next/router";
 
 const AuthContext = createContext();
 
@@ -23,6 +24,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
+        let idToken = user.getIdToken();
         setUser({
           uid: user.uid,
           email: user.email,
@@ -37,14 +39,20 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   const signup = (email, password) => {
+    sessionStorage.setItem("isAuthenticated", true);
+    // sessionStorage.setItem("tokenId", tokenId);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const login = (email, password) => {
+    sessionStorage.setItem("isAuthenticated", true);
+    // sessionStorage.setItem("tokenId", tokenId);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logout = async () => {
+    sessionStorage.setItem("isAuthenticated", false);
+    // sessionStorage.setItem("tokenId", null);
     setUser(null);
     await signOut(auth);
   };

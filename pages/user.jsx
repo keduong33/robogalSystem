@@ -6,25 +6,28 @@ import { useRouter } from "next/router";
 function User() {
   const { user, logout } = useAuth();
   const router = useRouter();
+  if (!isAuthenticated(user)) {
+    router.push("/login");
+  } else {
+    const handleLogout = async (e) => {
+      e.preventDefault();
+      try {
+        await logout(user.email, user.password);
+        router.push("/login");
+      } catch (error) {
+        // console.log(error);
+      }
+    };
 
-  const handleLogout = async (e) => {
-    e.preventDefault();
-    try {
-      await logout(user.email, user.password);
-      router.push("/login");
-    } catch (error) {
-      // console.log(error);
-    }
-  };
-
-  return (
-    <div>
-      <div>Hello user: {user?.email}</div>
+    return (
       <div>
-        <button onClick={handleLogout}>Logout</button>
+        <div>Hello user: {user?.email}</div>
+        <div>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default User;

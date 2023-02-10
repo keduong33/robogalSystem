@@ -6,8 +6,8 @@ import React, { useState } from "react";
 import LoginComp from "../components/LoginComp";
 import { useRouter } from "next/router";
 import { useAuth } from "../authentication/AuthContext";
-import { isAuthenticated } from "../components/SecurityCheck";
 import LoadingScreenComp from "../components/ReusableComps/LoadingScreenComp";
+import { isAuthenticated } from "../components/SecurityCheck";
 
 function Login() {
   const router = useRouter();
@@ -26,6 +26,7 @@ function Login() {
       e.preventDefault();
       try {
         await login(formDetails.email, formDetails.password);
+        sessionStorage.setItem("isAuthenticated", true);
       } catch (error) {
         // console.log(error);
       }
