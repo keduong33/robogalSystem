@@ -1,8 +1,10 @@
 import React from "react";
 import GetDataListComp from "../ReusableComps/GetDataListComp";
+import { useAuth } from "../../authentication/AuthContext";
 
 function BookingListComp() {
-  let bookingList = GetDataListComp("session", "Bensua School");
+  const { user } = useAuth();
+  let bookingList = GetDataListComp("session", user);
 
   return <div>Booking</div>;
 }

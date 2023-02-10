@@ -20,6 +20,7 @@ function Register() {
     e.preventDefault();
     try {
       await signup(formDetails.email, formDetails.password);
+      saveNewUser();
     } catch (error) {
       console.log(error);
     }
@@ -35,5 +36,7 @@ function Register() {
     </div>
   );
 }
+
+function saveNewUser() {}
 
 export default Register;

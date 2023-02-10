@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { getDocs, collection } from "@firebase/firestore";
+import { doc, getDoc, getDocs, collection } from "@firebase/firestore";
 import { db } from "../../config/firebase";
 
 function GetDataListComp(requestedCollection, user) {
   let [dataList, setDataList] = useState([]);
+  let role = getUserRole(user);
   useEffect(() => {
     const getData = async () => {
       const querySnapshot = await getDocs(collection(db, requestedCollection));
@@ -19,6 +20,16 @@ function GetDataListComp(requestedCollection, user) {
   }, []);
 
   return dataList;
+}
+
+async function getUserRole(user) {
+  const docRef = doc(db, "user", user.uid);
+  const docSnap = await getDoc(docRef);
+  let role = null;
+  if (docSnap.exists()) {
+    role = docSnap.get("role");
+  }
+  return role;
 }
 
 export default GetDataListComp;

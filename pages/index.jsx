@@ -21,7 +21,9 @@ function Home() {
         <PageTitleComp
           pageTitle={
             <div className="flex">
-              <div className="self-center">Welcome {user?.email} </div>
+              <div className="self-center">
+                Welcome {user?.email}! Role: {user.r}{" "}
+              </div>
               <MdOutlineWavingHand size={50} />
             </div>
           }

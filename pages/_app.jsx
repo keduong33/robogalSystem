@@ -10,7 +10,7 @@ import { isAuthenticated } from "../components/SecurityCheck";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const [user, setUser] = useState(null);
+  let user = null;
 
   // Basic authentication check
   useEffect(() => {
