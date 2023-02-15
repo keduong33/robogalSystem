@@ -5,9 +5,11 @@ import { useEffect } from "react";
 
 function BookingListComp() {
   const { user } = useAuth();
-  let sessionList = GetDataListComp("session", user);
-
-  return <div>Booking</div>;
+  const [sessionList, setSession] = useState([""]);
+  GetDataListComp("session", user).then((sessionList) => {
+    setSession(sessionList);
+  });
+  return <div key="test">{sessionList[0].title}</div>;
 }
 
 export default BookingListComp;
