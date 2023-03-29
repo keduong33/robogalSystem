@@ -6,6 +6,7 @@ import { MdOutlineWavingHand } from "react-icons/md";
 import BookingDetailComp from "../components/BookingComps/BookingDetail";
 import BookingList from "./booking/list";
 import { isAuthenticated } from "../components/SecurityCheck";
+import BookingListComp from "../components/BookingComps/BookingListComp";
 
 function Home() {
   const { user } = useAuth();
@@ -34,12 +35,12 @@ function Home() {
         </div>
 
         {/* List of bookings */}
-        <div>
-          <BookingList />
+        <div className="flex">
+          <BookingListComp />
         </div>
 
         {/* Add new Booking */}
-        <div>
+        <div className="flex justify-center">
           <button
             className="blueButton max-w-fit"
             onClick={() => {

@@ -54,7 +54,7 @@ async function getOwnedSessionList(user) {
     }
   } catch (error) {
     console.log(
-      "Something wrong with the function that gets owned session list"
+      "Something wrong with the 'Getting owned session list' function"
     );
   }
 }

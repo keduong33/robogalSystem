@@ -30,3 +30,10 @@ export default function App({ Component, pageProps }) {
     </div>
   );
 }
+
+// className="h-full flex flex-col
+// bg-gradient-to-br
+// from-blue-50
+// via-blue-400
+// to-blue-200
+// min-h-screen

@@ -15,11 +15,7 @@ function BookingList() {
   if (!isAuthenticated(user)) {
     router.push("/login");
   } else {
-    return (
-      <div className="border">
-        <BookingListComp />
-      </div>
-    );
+    return <BookingListComp />;
   }
 }
 
