@@ -31,6 +31,7 @@ function SessionTemplateListComp() {
               sx={{ borderRadius: "20px" }}
               className="w-80 sm:w-80 lg:w-96 xl:max-w-xl h-72"
             >
+              {/* --------------------------Card Header-------------------------- */}
               <CardHeader
                 title={
                   <Box className="font-bold h-full">{sessionObj.title}</Box>
@@ -41,6 +42,8 @@ function SessionTemplateListComp() {
                   </IconButton>
                 }
               />
+
+              {/* --------------------------Card Content-------------------------- */}
               <CardContent>
                 <Typography
                   component={"div"}
@@ -56,6 +59,8 @@ function SessionTemplateListComp() {
                   </Box>
                 </Typography>
               </CardContent>
+
+              {/* --------------------------Button-------------------------- */}
               <CardActions className="w-fit h-fit mx-auto">
                 <button
                   className="greenButton w-fit h-fit"

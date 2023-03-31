@@ -34,7 +34,7 @@ function AddTimeComp({
     <div>
       <div className="flex flex-col flex-wrap items-center lg:items-end">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          {/* Start time */}
+          {/* Start time picker */}
           <div className="mb-5">
             <TimePicker
               label="Start Time"
@@ -77,7 +77,7 @@ function AddTimeComp({
             />
           </div>
 
-          {/* End time */}
+          {/* End time picker*/}
           <div className="">
             <TimePicker
               label="End Time"
@@ -126,7 +126,7 @@ function AddTimeComp({
           </div>
         </LocalizationProvider>
 
-        {/* Button */}
+        {/* Set Time Button */}
         <div className="lg:self-end">
           <button
             className="blueButton"
