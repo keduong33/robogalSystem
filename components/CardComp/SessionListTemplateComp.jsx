@@ -18,20 +18,21 @@ function SessionTemplateListComp() {
   const { user } = useAuth();
   const [moreInfo, setMoreInfo] = useState(false); //a flag to display more info on a session
   const [templateList, setTemplateList] = useState([""]);
+  let count = 0;
+
   useEffect(() => {
-    GetDataListComp("sessionTemplate", user).then((templateList) => {
-      setTemplateList(templateList);
-    });
-  }, [user, templateList]);
+    async function fetchSessionList() {
+      const templates = await GetDataListComp("sessionTemplate", user);
+      setTemplateList(templates);
+    }
+    fetchSessionList();
+  }, [user]);
 
   return (
     <div>
       <div className="grid grid-flow-row grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {templateList.map((templateObj) => (
-          <div
-            className="max-w-full flex justify-center"
-            key={templateObj.title}
-          >
+          <div className="max-w-full flex justify-center" key={count++}>
             <Card
               sx={{ borderRadius: "20px" }}
               className="w-80 sm:w-80 lg:w-96 xl:max-w-xl h-72"

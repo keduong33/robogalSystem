@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
 import { doc, getDoc, getDocs, collection } from "@firebase/firestore";
 import { db } from "../../config/firebase";
 
 async function GetDataListComp(requestedCollection, user) {
-  let ownedSessionList = await getOwnedSessionList(user);
-  let dataList = [""];
-  if (requestedCollection == "session") {
-    dataList = await getInfoList(downedSessionList, user.role);
+  let data = [""];
+  if (requestedCollection === "session") {
+    const ownedSessionList = await getOwnedSessionList(user);
+    data = getInfoList(ownedSessionList, user.role);
   } else {
-    dataList = await getTemplateList();
+    data = getTemplateList();
   }
-
-  return dataList;
+  return data;
 }
 
 async function getTemplateList() {

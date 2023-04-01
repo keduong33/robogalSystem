@@ -14,30 +14,34 @@ import {
 
 function BookingListComp() {
   const { user } = useAuth();
-  // const [sessionList, setSession] = useState([""]);
+  const [sessionList, setSession] = useState([""]);
 
-  // useEffect(() => {
-  //   GetDataListComp("session", user).then((sessionList) => {
-  //     setSession(sessionList);
-  //   });
-  // }, [user, sessionList]);
+  useEffect(() => {
+    async function fetchSessionList() {
+      const sessions = await GetDataListComp("session", user);
+      setSession(sessions);
+    }
+    fetchSessionList();
+  }, [user]);
 
-  function createData(title, status, date, time, location) {
-    return { title, status, date, time, location };
-  }
+  console.log(sessionList);
 
-  const sessionList = [
-    createData("Intro 1", "Confirmed", "1/1/2001", "1AM-2AM", "Your primary"),
-    createData("Intro 2", "Pending", "2/2/2002", "1AM-2AM", "Location"),
-    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  ];
+  // function createData(title, status, date, time, location) {
+  //   return { title, status, date, time, location };
+  // }
+
+  // const sessionList = [
+  //   createData("Intro 1", "Confirmed", "1/1/2001", "1AM-2AM", "Your primary"),
+  //   createData("Intro 2", "Pending", "2/2/2002", "1AM-2AM", "Location"),
+  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  // ];
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -59,7 +63,7 @@ function BookingListComp() {
       </TableCell>
     );
   };
-
+  let count = 0;
   return (
     <TableContainer
       className="min-w-fit max-w-screen-xl"
@@ -84,7 +88,7 @@ function BookingListComp() {
         <TableBody>
           {sessionList.map((sessionObj) => (
             <TableRow
-              key={sessionObj.title}
+              key={count++}
               sx={{
                 backgroundColor: getStatusColor(sessionObj.status),
                 marginBottom: "10px",
