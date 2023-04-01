@@ -1,7 +1,8 @@
+import { Image } from "@mui/icons-material";
 import { Box, Modal, Typography } from "@mui/material";
 import React from "react";
 
-function FullSessionInfoComp({ moreInfo, setMoreInfo }) {
+function FullSessionInfoComp({ moreInfo, setMoreInfo, info }) {
   const style = {
     position: "absolute",
     top: "50%",
@@ -23,10 +24,10 @@ function FullSessionInfoComp({ moreInfo, setMoreInfo }) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            {info.title}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            {info.longDescription}
           </Typography>
           <button className="greenButton"> Select This Session</button>
         </Box>

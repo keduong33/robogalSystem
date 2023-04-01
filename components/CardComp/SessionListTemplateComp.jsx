@@ -17,6 +17,7 @@ import { useAuth } from "../../authentication/AuthContext";
 function SessionTemplateListComp() {
   const { user } = useAuth();
   const [moreInfo, setMoreInfo] = useState(false); //a flag to display more info on a session
+  const [info, setInfo] = useState("");
   const [templateList, setTemplateList] = useState([""]);
   let count = 0;
 
@@ -72,6 +73,7 @@ function SessionTemplateListComp() {
                   className="greenButton w-fit h-fit"
                   onClick={() => {
                     setMoreInfo(true);
+                    setInfo(templateObj);
                   }}
                 >
                   Select This Session
@@ -84,7 +86,11 @@ function SessionTemplateListComp() {
 
       {/* Overlay/Popup for more Info on the session */}
       <div>
-        <FullSessionInfoComp moreInfo={moreInfo} setMoreInfo={setMoreInfo} />
+        <FullSessionInfoComp
+          moreInfo={moreInfo}
+          setMoreInfo={setMoreInfo}
+          info={info}
+        />
       </div>
     </div>
   );
