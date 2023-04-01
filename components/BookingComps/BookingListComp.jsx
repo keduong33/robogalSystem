@@ -3,6 +3,7 @@ import GetDataListComp from "../ReusableComps/GetDataListComp";
 import { useAuth } from "../../authentication/AuthContext";
 import { useEffect } from "react";
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -10,7 +11,6 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { BorderBottom } from "@mui/icons-material";
 
 function BookingListComp() {
   const { user } = useAuth();
@@ -20,7 +20,7 @@ function BookingListComp() {
   //   GetDataListComp("session", user).then((sessionList) => {
   //     setSession(sessionList);
   //   });
-  // }, []);
+  // }, [user, sessionList]);
 
   function createData(title, status, date, time, location) {
     return { title, status, date, time, location };
@@ -29,6 +29,13 @@ function BookingListComp() {
   const sessionList = [
     createData("Intro 1", "Confirmed", "1/1/2001", "1AM-2AM", "Your primary"),
     createData("Intro 2", "Pending", "2/2/2002", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
     createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
   ];
 
@@ -54,15 +61,16 @@ function BookingListComp() {
   };
 
   return (
-    // <div>
-    //   {/* {sessionList.map((sessionObj) => (
-    //     <div key={sessionObj.title}>{sessionObj.title}</div>
-    //   ))} */}
-    //   <Table></Table>
-    // </div>
-    <TableContainer className="min-w-fit max-w-screen-xl max-h-80">
-      <Table aria-label="Booking list" className="h-fit">
-        <TableHead stickyHeader>
+    <TableContainer
+      className="min-w-fit max-w-screen-xl"
+      sx={{ maxHeight: "500px", marginBottom: 5 }}
+    >
+      <Table
+        aria-label="Booking list"
+        className="h-fit"
+        sx={{ borderCollapse: "separate", borderSpacing: "0 10px" }}
+      >
+        <TableHead>
           <TableRow>
             <TableCell sx={{ borderBottom: "transparent" }}>
               Session Name
@@ -79,13 +87,14 @@ function BookingListComp() {
               key={sessionObj.title}
               sx={{
                 backgroundColor: getStatusColor(sessionObj.status),
+                marginBottom: "10px",
               }}
             >
               <TableCell
                 sx={{
                   borderBottom: "transparent",
-                  borderTopLeftRadius: 10,
-                  borderBottomLeftRadius: 10,
+                  borderTopLeftRadius: 20,
+                  borderBottomLeftRadius: 20,
                 }}
               >
                 {sessionObj.title}
@@ -96,8 +105,8 @@ function BookingListComp() {
               <TableCell
                 sx={{
                   borderBottom: "transparent",
-                  borderTopRightRadius: 10,
-                  borderBottomRightRadius: 10,
+                  borderTopRightRadius: 20,
+                  borderBottomRightRadius: 20,
                 }}
                 align="right"
               >

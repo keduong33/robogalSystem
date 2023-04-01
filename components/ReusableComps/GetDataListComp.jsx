@@ -4,12 +4,23 @@ import { db } from "../../config/firebase";
 
 async function GetDataListComp(requestedCollection, user) {
   let ownedSessionList = await getOwnedSessionList(user);
-
-  const role = await getRole(user);
-
-  let dataList = await getInfoList(ownedSessionList, role);
+  let dataList = [""];
+  if (requestedCollection == "session") {
+    dataList = await getInfoList(downedSessionList, user.role);
+  } else {
+    dataList = await getTemplateList();
+  }
 
   return dataList;
+}
+
+async function getTemplateList() {
+  let infoList = [];
+  const querySnapshot = await getDocs(collection(db, "sessionTemplate"));
+  querySnapshot.forEach((doc) => {
+    infoList.push(doc.data());
+  });
+  return infoList;
 }
 
 async function getInfoList(ownedSessionList, role) {
@@ -27,21 +38,10 @@ async function getInfoList(ownedSessionList, role) {
     if (role == "admin") {
       const querySnapshot = await getDocs(collection(db, "session"));
       querySnapshot.forEach((doc) => {
-        console.log("test");
+        infoList.push(doc.data());
       });
     }
   }
-}
-
-async function getRole(user) {
-  const docRef = doc(db, "users", user.uid);
-  const docSnap = await getDoc(docRef);
-  let role = "user";
-
-  if (docSnap.exists()) {
-    role = docSnap.get("role");
-  }
-  return role;
 }
 
 async function getOwnedSessionList(user) {

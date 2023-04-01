@@ -11,6 +11,8 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../config/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
 
 const AuthContext = createContext();
 
@@ -21,13 +23,16 @@ export const AuthContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        let idToken = user.getIdToken();
+    const unsubscribe = onAuthStateChanged(auth, async (currUser) => {
+      if (currUser) {
+        const userRole = (await getDoc(doc(db, "users", currUser.uid))).get(
+          "role"
+        );
         setUser({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
+          uid: currUser.uid,
+          email: currUser.email,
+          displayName: currUser.displayName,
+          role: userRole,
         });
       } else {
         setUser(null);
@@ -38,20 +43,14 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   const signup = (email, password) => {
-    // sessionStorage.setItem("isAuthenticated", true);
-    // sessionStorage.setItem("tokenId", tokenId);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const login = (email, password) => {
-    // sessionStorage.setItem("isAuthenticated", true);
-    // sessionStorage.setItem("tokenId", tokenId);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const logout = async () => {
-    // sessionStorage.setItem("isAuthenticated", false);
-    // sessionStorage.setItem("tokenId", null);
     setUser(null);
     await signOut(auth);
   };

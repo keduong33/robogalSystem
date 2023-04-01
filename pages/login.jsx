@@ -26,7 +26,6 @@ function Login() {
       e.preventDefault();
       try {
         await login(formDetails.email, formDetails.password);
-        // sessionStorage.setItem("isAuthenticated", true);
       } catch (error) {
         // console.log(error);
       }

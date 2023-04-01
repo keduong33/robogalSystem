@@ -4,7 +4,6 @@ import { useAuth } from "../authentication/AuthContext";
 import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import { MdOutlineWavingHand } from "react-icons/md";
 import BookingDetailComp from "../components/BookingComps/BookingDetail";
-import BookingList from "./booking/list";
 import { isAuthenticated } from "../components/SecurityCheck";
 import BookingListComp from "../components/BookingComps/BookingListComp";
 
@@ -50,13 +49,13 @@ function Home() {
             Create New Booking
           </button>
           <br></br>
-          <button
+          {/* <button
             className="blueButton max-w-fit"
             onClick={() => setTest(!test)}
           >
             Test Booking DateTime Comp
           </button>
-          {test && <BookingDetailComp />}
+          {test && <BookingDetailComp />} */}
         </div>
       </div>
     );
