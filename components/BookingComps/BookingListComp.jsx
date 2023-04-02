@@ -14,34 +14,31 @@ import {
 
 function BookingListComp() {
   const { user } = useAuth();
-  const [sessionList, setSession] = useState([""]);
+  // const [sessionList, setSession] = useState([""]);
+  // useEffect(() => {
+  //   async function fetchSessionList() {
+  //     const sessions = await GetDataListComp("session", user);
+  //     setSession(sessions);
+  //   }
+  //   fetchSessionList();
+  // }, [user]);
 
-  useEffect(() => {
-    async function fetchSessionList() {
-      const sessions = await GetDataListComp("session", user);
-      setSession(sessions);
-    }
-    fetchSessionList();
-  }, [user]);
+  function createData(title, status, date, time, location) {
+    return { title, status, date, time, location };
+  }
 
-  console.log(sessionList);
-
-  // function createData(title, status, date, time, location) {
-  //   return { title, status, date, time, location };
-  // }
-
-  // const sessionList = [
-  //   createData("Intro 1", "Confirmed", "1/1/2001", "1AM-2AM", "Your primary"),
-  //   createData("Intro 2", "Pending", "2/2/2002", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  // ];
+  const sessionList = [
+    createData("Intro 1", "Confirmed", "1/1/2001", "1AM-2AM", "Your primary"),
+    createData("Intro 2", "Pending", "2/2/2002", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+    createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
+  ];
 
   const getStatusColor = (status) => {
     switch (status) {

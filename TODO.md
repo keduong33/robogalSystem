@@ -1,7 +1,7 @@
 # David
 
 - [X] Store UID into the database when a new user is created
-- [ ] Work out the security rules for the user --> References:
+- [X] Work out the security rules for the user --> References:
   - https://firebase.google.com/docs/firestore/security/rules-conditions
   - https://firebase.google.com/docs/firestore/solutions/role-based-access
 - [ ] Have not tested the Google Login yet --> I think Long doing this
@@ -12,11 +12,11 @@
 - [ ] Add Location Search Bar
 - [X] Put down the base of the add new booking: add session list and session info
 - [ ] SECURITY --> I FEEL LIKE IT IS VERY INSECURE
+- [ ] Optimise the retrieval of date --> maybe cache it to render faster --> gotta check out real-time database firebase again
 
 --> Testing account:
 username: testing@gmail.com
 password: testing
-
 
 --> Admin account:
 
