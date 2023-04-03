@@ -30,6 +30,7 @@ function SessionTemplateListComp() {
   // }, [user]);
 
   function createData(
+    id,
     title,
     status,
     date,
@@ -40,6 +41,7 @@ function SessionTemplateListComp() {
     imageUrl
   ) {
     return {
+      id,
       title,
       status,
       date,
@@ -53,6 +55,7 @@ function SessionTemplateListComp() {
 
   const templateList = [
     createData(
+      "ID1",
       "Intro 1",
       "Confirmed",
       "1/1/2001",
@@ -63,6 +66,7 @@ function SessionTemplateListComp() {
       "/images/test.jpg"
     ),
     createData(
+      "ID2",
       "Intro 2",
       "Pending",
       "2/2/2002",
@@ -73,6 +77,7 @@ function SessionTemplateListComp() {
       "/images/test.jpg"
     ),
     createData(
+      "ID3",
       "Lego",
       "Declined",
       "3/3/2003",

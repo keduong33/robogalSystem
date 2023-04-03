@@ -43,7 +43,7 @@ function Home() {
           <button
             className="blueButton max-w-fit"
             onClick={() => {
-              router.push("/booking/new");
+              router.push("/new/session");
             }}
           >
             Create New Booking

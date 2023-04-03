@@ -1,8 +1,11 @@
 import { Image } from "@mui/icons-material";
 import { Box, CardMedia, Modal, Typography } from "@mui/material";
+import { useRouter } from "next/router";
 import React from "react";
 
 function FullSessionInfoComp({ moreInfo, setMoreInfo, info }) {
+  const router = useRouter();
+
   return (
     <div>
       <Modal
@@ -26,7 +29,16 @@ function FullSessionInfoComp({ moreInfo, setMoreInfo, info }) {
           >
             {info.longDescription}
           </Typography>
-          <button className="greenButton w-fit mt-4">
+          <button
+            onClick={() => {
+              console.log("clicked");
+              router.push({
+                pathname: "/new/details",
+                query: { templateID: info.id },
+              });
+            }}
+            className="greenButton w-fit mt-4"
+          >
             Select This Session
           </button>
         </Box>
