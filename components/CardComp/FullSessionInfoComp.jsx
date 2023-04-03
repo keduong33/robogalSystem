@@ -2,6 +2,7 @@ import { Image } from "@mui/icons-material";
 import { Box, CardMedia, Modal, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import React from "react";
+import { json } from "react-router-dom";
 
 function FullSessionInfoComp({ moreInfo, setMoreInfo, info }) {
   const router = useRouter();
@@ -31,10 +32,12 @@ function FullSessionInfoComp({ moreInfo, setMoreInfo, info }) {
           </Typography>
           <button
             onClick={() => {
-              console.log("clicked");
               router.push({
                 pathname: "/new/details",
-                query: { templateID: info.id },
+                query: {
+                  templateID: info.id,
+                  templateTitle: info.title,
+                },
               });
             }}
             className="greenButton w-fit mt-4"

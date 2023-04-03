@@ -2,7 +2,7 @@
 // gotta move this one later one
 import React, { useState } from "react";
 import AddDateComp from "./DetailComps/DateComp";
-import AddTimeComp from "./DetailComps/TimeComp";
+import AddTimeComp from "./TimeComp";
 import AddSessionTypeComp from "./DetailComps/SessionTypeComp";
 import AddLocationComp from "./DetailComps/LocationComp";
 import ConfirmComp from "./DetailComps/ConfirmationComp";
@@ -25,10 +25,10 @@ function BookingDetailComp() {
   if (!open) return null;
   return (
     <div>
-      {/* Adding Components */}
+      {/* Components */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 grid-flow-row-dense mx-auto sm:mx-5 lg:mx-60">
         {/* Date Component */}
-        <div className="min-w-fit max-w-fit col-span-2 mx-auto sm:col-span-1 ">
+        <div className="w-fit col-span-2 mx-auto sm:col-span-1 ">
           <AddDateComp
             date={date}
             setDate={setDate}

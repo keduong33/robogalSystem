@@ -3,14 +3,12 @@ import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import { MdOutlineWavingHand } from "react-icons/md";
-import BookingDetailComp from "../components/BookingComps/BookingDetail";
 import { isAuthenticated } from "../components/SecurityCheck";
 import BookingListComp from "../components/BookingComps/BookingListComp";
 
 function Home() {
   const { user } = useAuth();
   const router = useRouter();
-  const [test, setTest] = useState(false);
 
   if (!isAuthenticated(user)) {
     router.push("/login");
@@ -48,14 +46,6 @@ function Home() {
           >
             Create New Booking
           </button>
-          <br></br>
-          {/* <button
-            className="blueButton max-w-fit"
-            onClick={() => setTest(!test)}
-          >
-            Test Booking DateTime Comp
-          </button>
-          {test && <BookingDetailComp />} */}
         </div>
       </div>
     );

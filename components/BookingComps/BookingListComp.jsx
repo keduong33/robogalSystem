@@ -63,7 +63,7 @@ function BookingListComp() {
   let count = 0;
   return (
     <TableContainer
-      className="min-w-fit max-w-screen-xl"
+      className="w-full sm:max-w-screen-xl mx-auto"
       sx={{ maxHeight: "500px", marginBottom: 5 }}
     >
       <Table
