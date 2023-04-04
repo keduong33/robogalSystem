@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 import { MdOutlineWavingHand } from "react-icons/md";
 import { isAuthenticated } from "../components/SecurityCheck";
-import BookingsList from "../components/BookingComps/BookingsList";
+import BookingsList from "../components/ListComps/BookingsList";
 import PageTitle from "../components/utilities/PageTitle";
 
 function Home() {

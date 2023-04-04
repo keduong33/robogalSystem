@@ -10,9 +10,9 @@ import {
 import { MdLocationOn } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import FullSessionInfoCard from "./FullSessionInfoCard";
-import GetInfoFunc from "../utilities/GetInfoFunc";
+import RetrieveList from "../utilities/RetrieveListFirebase";
 import { useAuth } from "../../authentication/AuthContext";
+import FullSessionInfoComp from "../CardComps/FullSessionInfoCard";
 
 function SessionTemplateListComp() {
   const { user } = useAuth();
@@ -142,7 +142,7 @@ function SessionTemplateListComp() {
       {/* Overlay/Popup for more Info on the session */}
       <div>
         {isModalOpen && (
-          <FullSessionInfoCard
+          <FullSessionInfoComp
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
             template={template}

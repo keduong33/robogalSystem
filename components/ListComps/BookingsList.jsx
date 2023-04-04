@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GetDataListComp from "../utilities/GetInfoFunc";
+import RetrieveList from "../utilities/RetrieveListFirebase";
 import { useAuth } from "../../authentication/AuthContext";
 import { useEffect } from "react";
 import {

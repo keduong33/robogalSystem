@@ -6,7 +6,7 @@ import React from "react";
 import { useAuth } from "../../authentication/AuthContext";
 import PageTitleComp from "../../components/utilities/PageTitle";
 import { isAuthenticated } from "../../components/SecurityCheck";
-import SessionTemplatesList from "../../components/CardComps/SessionTemplatesList";
+import SessionTemplatesList from "../../components/ListComps/SessionTemplatesList";
 
 function NewBooking() {
   const router = useRouter();
