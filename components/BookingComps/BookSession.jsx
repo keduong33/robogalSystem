@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { TextField } from "@mui/material";
-import TimeComp from "./TimeComp";
-import LocationComp from "./LocationComp";
-import SessionTypeComp from "./SessionTypeComp";
-import ConfirmComp from "./ConfirmationComp";
+import PickTime from "./PickTime";
+import PickLocation from "./PickLocation";
+import PickSessionType from "./PickSessionType";
+import ConfirmSession from "./ConfirmSession";
 
-function BookingDetailsComp() {
+function BookSession() {
   // Date Data
   const [date, setDate] = useState(null);
 
@@ -44,24 +44,24 @@ function BookingDetailsComp() {
           renderInput={(params) => <TextField {...params} />}
           className="w-fit flex justify-self-center"
         />
-        <TimeComp
+        <PickTime
           startTime={startTime}
           setStartTime={setStartTime}
           endTime={endTime}
           setEndTime={setEndTime}
         />
-        <SessionTypeComp
+        <PickSessionType
           sessionType={sessionType}
           setSessionType={setSessionType}
         />
         {sessionType === "In Person" && (
-          <LocationComp location={location} setLocation={setLocation} />
+          <PickLocation location={location} setLocation={setLocation} />
         )}
 
-        <ConfirmComp eligible={isEligible()} />
+        <ConfirmSession eligible={isEligible()} />
       </div>
     </LocalizationProvider>
   );
 }
 
-export default BookingDetailsComp;
+export default BookSession;

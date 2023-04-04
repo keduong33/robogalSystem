@@ -8,7 +8,7 @@ import { useAuth } from "../../authentication/AuthContext";
 import { useRouter } from "next/router";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Divider, Menu, MenuItem } from "@mui/material";
-import NotificationComp from "./NotificationComp";
+import Notification from "./Notification";
 
 function LogoBar() {
   const { user, logout } = useAuth();
@@ -104,14 +104,14 @@ function LogoBar() {
           >
             Profile
           </MenuItem>
-          <MenuItem
+          {/* <MenuItem
             onClick={() => {
               handleClose();
               setOpenNotification(true);
             }}
           >
             Notifications
-          </MenuItem>
+          </MenuItem> */}
           <MenuItem
             onClick={() => {
               handleClose();
@@ -122,7 +122,7 @@ function LogoBar() {
           </MenuItem>
         </Menu>
       )}
-      <NotificationComp
+      <Notification
         openNotification={openNotification}
         setOpenNotification={setOpenNotification}
       />

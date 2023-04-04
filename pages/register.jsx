@@ -4,7 +4,7 @@ Functionalities and Design of the REGISTER Page
 
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import RegisterComp from "../components/RegisterComp";
+import RegisterForm from "../components/RegisterForm";
 import { useAuth } from "../authentication/AuthContext";
 import { db } from "../config/firebase";
 import { doc, setDoc } from "firebase/firestore";
@@ -33,7 +33,7 @@ function Register() {
 
     return (
       <div className="h-full flex items-center justify-center">
-        <RegisterComp
+        <RegisterForm
           formDetails={formDetails}
           setFormDetails={setFormDetails}
           handleSignup={handleSignup}

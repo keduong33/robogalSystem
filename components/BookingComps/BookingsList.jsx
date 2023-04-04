@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GetDataListComp from "../utilities/GetDataListComp";
+import GetDataListComp from "../utilities/GetInfoFunc";
 import { useAuth } from "../../authentication/AuthContext";
 import { useEffect } from "react";
 import {
@@ -12,7 +12,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-function BookingListComp() {
+function BookingsListComp() {
   const { user } = useAuth();
   // const [sessionList, setSession] = useState([""]);
   // useEffect(() => {
@@ -121,4 +121,4 @@ function BookingListComp() {
   );
 }
 
-export default BookingListComp;
+export default BookingsListComp;

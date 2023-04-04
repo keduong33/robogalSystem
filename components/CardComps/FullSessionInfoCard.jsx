@@ -1,17 +1,15 @@
-import { Image } from "@mui/icons-material";
-import { Box, CardMedia, Modal, Typography } from "@mui/material";
+import { Box, Modal, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import React from "react";
-import { json } from "react-router-dom";
 
-function FullSessionInfoComp({ moreInfo, setMoreInfo, info }) {
+function FullSessionInfoComp({ isModalOpen, setIsModalOpen, info }) {
   const router = useRouter();
 
   return (
     <div>
       <Modal
-        open={moreInfo}
-        onClose={() => setMoreInfo(false)}
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

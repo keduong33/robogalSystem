@@ -10,13 +10,13 @@ import {
 import { MdLocationOn } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import FullSessionInfoComp from "./FullSessionInfoComp";
-import GetDataListComp from "../utilities/GetDataListComp";
+import FullSessionInfoCard from "./FullSessionInfoCard";
+import GetInfoFunc from "../utilities/GetInfoFunc";
 import { useAuth } from "../../authentication/AuthContext";
 
 function SessionTemplateListComp() {
   const { user } = useAuth();
-  const [moreInfo, setMoreInfo] = useState(false); //a flag to display more info on a session
+  const [isModalOpen, setIsModalOpen] = useState(false); //a flag to display more info on a session
   const [info, setInfo] = useState("");
   let count = 0;
 
@@ -132,7 +132,7 @@ function SessionTemplateListComp() {
                 <button
                   className="greenButton w-fit h-fit"
                   onClick={() => {
-                    setMoreInfo(true);
+                    setIsModalOpen(true);
                     setInfo(templateObj);
                   }}
                 >
@@ -146,10 +146,10 @@ function SessionTemplateListComp() {
 
       {/* Overlay/Popup for more Info on the session */}
       <div>
-        {moreInfo && (
-          <FullSessionInfoComp
-            moreInfo={moreInfo}
-            setMoreInfo={setMoreInfo}
+        {isModalOpen && (
+          <FullSessionInfoCard
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
             info={info}
           />
         )}

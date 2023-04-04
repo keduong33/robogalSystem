@@ -3,10 +3,10 @@ Functionalities and Design of the LOGIN Page
  */
 
 import React, { useState } from "react";
-import LoginComp from "../components/LoginComp";
+import LoginForm from "../components/LoginForm";
 import { useRouter } from "next/router";
 import { useAuth } from "../authentication/AuthContext";
-import LoadingScreenComp from "../components/ReusableComps/LoadingScreenComp";
+import LoadingScreen from "../components/utilities/LoadingScreen";
 import { isAuthenticated } from "../components/SecurityCheck";
 
 function Login() {
@@ -20,7 +20,7 @@ function Login() {
   //basic authentication check --> redirect to default page
   if (isAuthenticated(user)) {
     router.push("/");
-    return <LoadingScreenComp />;
+    return <LoadingScreen />;
   } else {
     const handleLogin = async (e) => {
       e.preventDefault();
@@ -33,7 +33,7 @@ function Login() {
 
     return (
       <div className="h-full flex items-center justify-center">
-        <LoginComp
+        <LoginForm
           setFormDetails={setFormDetails}
           formDetails={formDetails}
           handleLogin={handleLogin}

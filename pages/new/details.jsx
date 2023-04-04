@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../../authentication/AuthContext";
 import { useRouter, withRouter } from "next/router";
-import PageTitleComp from "../../components/utilities/PageTitleComp";
-import BookingDetailsComp from "../../components/BookingComps/BookingDetailsComp";
+import PageTitleComp from "../../components/utilities/PageTitle";
+import BookSession from "../../components/BookingComps/BookSession";
 import { isAuthenticated } from "../../components/SecurityCheck";
 
 function AddDetails(props) {
@@ -22,7 +22,7 @@ function AddDetails(props) {
             "Please select a datetime and location for your session"
           }
         />
-        <BookingDetailsComp />
+        <BookSession />
       </div>
     );
   }

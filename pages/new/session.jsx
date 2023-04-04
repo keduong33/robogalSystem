@@ -2,11 +2,11 @@
   Component that has session templates for user to choose
  */
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import { useAuth } from "../../authentication/AuthContext";
-import PageTitleComp from "../../components/utilities/PageTitleComp";
+import PageTitleComp from "../../components/utilities/PageTitle";
 import { isAuthenticated } from "../../components/SecurityCheck";
-import SessionTemplateListComp from "../../components/CardComp/SessionListTemplateComp";
+import SessionTemplatesList from "../../components/CardComps/SessionTemplatesList";
 
 function NewBooking() {
   const router = useRouter();
@@ -28,7 +28,7 @@ function NewBooking() {
         </div>
 
         <div className="h-full pt-4 w-full">
-          <SessionTemplateListComp />
+          <SessionTemplatesList />
         </div>
       </div>
     );

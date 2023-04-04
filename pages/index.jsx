@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
 import { MdOutlineWavingHand } from "react-icons/md";
 import { isAuthenticated } from "../components/SecurityCheck";
-import BookingListComp from "../components/BookingComps/BookingListComp";
-import PageTitleComp from "../components/utilities/PageTitleComp";
+import BookingsList from "../components/BookingComps/BookingsList";
+import PageTitle from "../components/utilities/PageTitle";
 
 function Home() {
   const { user } = useAuth();
@@ -17,7 +17,7 @@ function Home() {
       <div>
         {/* Page Title Component --> Modify Title & Desc to customize*/}
         <div>
-          <PageTitleComp
+          <PageTitle
             pageTitle={
               <div className="flex">
                 <div className="self-center">Welcome {user?.email}! </div>
@@ -33,7 +33,7 @@ function Home() {
 
         {/* List of bookings */}
         <div className="flex">
-          <BookingListComp />
+          <BookingsList />
         </div>
 
         {/* Add new Booking */}

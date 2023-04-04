@@ -6,7 +6,7 @@ import { AuthContextProvider } from "../authentication/AuthContext";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { SecurityCheck } from "../components/SecurityCheck";
-import LogoBar from "../components/utilities/LogoBarComp";
+import LogoBar from "../components/utilities/LogoBar";
 
 export default function App({ Component, pageProps }) {
   return (
