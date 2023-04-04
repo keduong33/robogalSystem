@@ -3,7 +3,7 @@ Functionalities and Design of the REGISTER Page
  */
 
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RegisterForm from "../components/RegisterForm";
 import { useAuth } from "../authentication/AuthContext";
 import { db } from "../config/firebase";
@@ -18,6 +18,21 @@ function Register() {
     password: "",
   });
 
+  async function saveNewUser(user) {
+    console.log(user);
+    // await setDoc(doc(db, "user", user.uid), {
+    //   name: user.email,
+    //   role: "user",
+    //   ownedSessionList: [],
+    // });
+  }
+
+  useEffect(() => {
+    if (user) {
+      saveNewUser(user);
+    }
+  }, [user]);
+
   if (isAuthenticated(user)) {
     router.push("/");
   } else {
@@ -25,9 +40,8 @@ function Register() {
       e.preventDefault();
       try {
         await signup(formDetails.email, formDetails.password);
-        saveNewUser(user);
       } catch (error) {
-        //console.log(error);
+        console.log(error);
       }
     };
 
@@ -40,13 +54,6 @@ function Register() {
         />
       </div>
     );
-  }
-
-  async function saveNewUser(user) {
-    await setDoc(doc(db, "user", user.uid), {
-      name: user.email,
-      role: "user",
-    });
   }
 }
 

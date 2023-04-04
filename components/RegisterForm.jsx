@@ -5,7 +5,7 @@ Design of the Register Page
 import Link from "next/link";
 import React from "react";
 
-function RegisterComp({ formDetails, setFormDetails, handleSignup }) {
+function RegisterForm({ formDetails, setFormDetails, handleSignup }) {
   return (
     <div className="border rounded-3xl md:w-6/12 sm:w-2/3 lg:w-1/3 bg-opacity-30 bg-slate-200 p-6 sm:p-10 md:p-20 lg:p-10">
       <form onSubmit={handleSignup}>
@@ -38,7 +38,7 @@ function RegisterComp({ formDetails, setFormDetails, handleSignup }) {
                   placeholder-black"
             id="password"
             type="password"
-            placeholder="Enter your Password Password"
+            placeholder="Enter your Password"
             onChange={(event) => {
               setFormDetails({ ...formDetails, password: event.target.value });
             }}
@@ -86,4 +86,4 @@ function RegisterComp({ formDetails, setFormDetails, handleSignup }) {
   );
 }
 
-export default RegisterComp;
+export default RegisterForm;

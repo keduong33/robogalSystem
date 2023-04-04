@@ -24,15 +24,20 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currUser) => {
       if (currUser) {
-        const userRole = (await getDoc(doc(db, "users", currUser.uid))).get(
-          "role"
-        );
-        setUser({
-          uid: currUser.uid,
-          email: currUser.email,
-          displayName: currUser.displayName,
-          role: userRole,
-        });
+        const userDoc = doc(db, "users", currUser.uid);
+        const userDocSnap = await getDoc(userDoc);
+
+        if (userDocSnap.exists()) {
+          const userRole = userDocSnap.get("role");
+          setUser({
+            uid: currUser.uid,
+            email: currUser.email,
+            displayName: currUser.displayName,
+            role: userRole,
+          });
+        } else {
+          setUser(null);
+        }
       } else {
         setUser(null);
       }
