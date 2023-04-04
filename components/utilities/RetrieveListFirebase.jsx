@@ -3,7 +3,7 @@ import { db } from "../../config/firebase";
 
 async function GetDataListComp(requestedCollection, user) {
   let data = [""];
-  if (requestedCollection === "session") {
+  if (requestedCollection === "sessions") {
     const ownedSessionList = await getOwnedSessionList(user);
     data = getInfoList(ownedSessionList, user.role);
   } else {
@@ -25,7 +25,7 @@ async function getInfoList(ownedSessionList, role) {
   let infoList = [];
   if (role != "admin") {
     for (let i = 0; i < ownedSessionList.length; i++) {
-      let docRef = doc(db, "session", ownedSessionList[i]);
+      let docRef = doc(db, "sessions", ownedSessionList[i]);
       let docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         infoList.push(docSnap.data());
@@ -34,7 +34,7 @@ async function getInfoList(ownedSessionList, role) {
     return infoList;
   } else {
     if (role == "admin") {
-      const querySnapshot = await getDocs(collection(db, "session"));
+      const querySnapshot = await getDocs(collection(db, "sessions"));
       querySnapshot.forEach((doc) => {
         infoList.push(doc.data());
       });

@@ -17,7 +17,7 @@ function SaveNewSession(newSession, user) {
   };
 
   const addNewRecord = async () => {
-    let res = await addDoc(collection(db, "session"), sessionRecord);
+    let res = await addDoc(collection(db, "sessions"), sessionRecord);
     const sessionsList = (await getDoc(doc(db, "users", user.uid))).get(
       "ownedSessionList"
     );

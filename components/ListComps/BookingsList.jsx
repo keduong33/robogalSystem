@@ -18,7 +18,7 @@ function BookingsList() {
   useEffect(() => {
     console.log("Fetch");
     async function fetchSessionList() {
-      const sessions = await RetrieveList("session", user);
+      const sessions = await RetrieveList("sessions", user);
       setSession(sessions);
       setLoading(false);
     }
