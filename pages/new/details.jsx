@@ -8,8 +8,8 @@ import { isAuthenticated } from "../../components/SecurityCheck";
 function AddDetails(props) {
   const { user } = useAuth();
   const router = useRouter();
-  const template = sessionStorage.getItem("currentTemplate");
-  const pageTitle = JSON.parse(template).title;
+  const template = JSON.parse(sessionStorage.getItem("currentTemplate"));
+  const pageTitle = template.title;
 
   if (!isAuthenticated(user)) {
     router.push("/login");
@@ -23,7 +23,7 @@ function AddDetails(props) {
             "Please select a datetime and location for your session"
           }
         />
-        <BookSession />
+        <BookSession user={user} />
       </div>
     );
   }

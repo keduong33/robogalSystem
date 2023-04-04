@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import ConfirmationCard from "../CardComps/ConfirmationCard";
 
-function ConfirmSession({ eligible, bookingInfo }) {
+function ConfirmSession({ eligible, bookingInfo, user }) {
   const router = useRouter();
   const [isConfirmCardOpen, setIsConfirmCardOpen] = useState(false);
 
@@ -53,6 +53,7 @@ function ConfirmSession({ eligible, bookingInfo }) {
             isConfirmCardOpen={isConfirmCardOpen}
             setIsConfirmCardOpen={setIsConfirmCardOpen}
             bookingInfo={bookingInfo}
+            user={user}
           />
         )}
       </div>

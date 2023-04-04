@@ -8,7 +8,7 @@ import PickSessionType from "./PickSessionType";
 import ConfirmSession from "./ConfirmSession";
 import dayjs from "dayjs";
 
-function BookSession() {
+function BookSession({ user }) {
   // Date Data
   const [date, setDate] = useState(null);
 
@@ -69,7 +69,11 @@ function BookSession() {
           <PickLocation location={location} setLocation={setLocation} />
         )}
 
-        <ConfirmSession eligible={isEligible()} bookingInfo={bookingInfo} />
+        <ConfirmSession
+          eligible={isEligible()}
+          bookingInfo={bookingInfo}
+          user={user}
+        />
       </div>
     </LocalizationProvider>
   );

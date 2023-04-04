@@ -1,9 +1,5 @@
 export function isAuthenticated(user) {
-  let validUser = true;
-  if (!user) {
-    validUser = false;
-  }
-  return validUser;
+  return !!user;
 }
 
 function SecurityCheck() {}

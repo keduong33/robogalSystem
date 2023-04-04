@@ -3,11 +3,13 @@ import React from "react";
 import PlaceIcon from "@mui/icons-material/Place";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import SaveNewSession from "../utilities/SaveNewSession";
+import { useRouter } from "next/router";
 
 function ConfirmationCard({
   isConfirmCardOpen,
   setIsConfirmCardOpen,
   bookingInfo,
+  user,
 }) {
   const template = JSON.parse(sessionStorage.getItem("currentTemplate"));
   const completeSessionInfo = {
@@ -20,6 +22,7 @@ function ConfirmationCard({
     location: bookingInfo.location,
   };
 
+  const router = useRouter();
   return (
     <div>
       <Modal
@@ -81,7 +84,8 @@ function ConfirmationCard({
           </Typography>
           <button
             onClick={() => {
-              SaveNewSession(completeSessionInfo);
+              SaveNewSession(completeSessionInfo, user);
+              router.push("/");
             }}
             className="greenButton w-fit mt-4"
           >
