@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useAuth } from "../../authentication/AuthContext";
 import { useRouter, withRouter } from "next/router";
-import PageTitleComp from "../../components/ReusableComps/PageTitleComp";
+import PageTitleComp from "../../components/utilities/PageTitleComp";
 import BookingDetailsComp from "../../components/BookingComps/BookingDetailsComp";
 import { isAuthenticated } from "../../components/SecurityCheck";
 

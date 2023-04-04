@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import AddDateComp from "./DetailComps/DateComp";
 import AddTimeComp from "./TimeComp";
-import AddSessionTypeComp from "./DetailComps/SessionTypeComp";
-import AddLocationComp from "./DetailComps/LocationComp";
-import ConfirmComp from "./DetailComps/ConfirmationComp";
+import AddSessionTypeComp from "./SessionTypeComp";
+import AddLocationComp from "./LocationComp";
+import ConfirmComp from "./ConfirmationComp";
 
 function BookingDetailComp() {
   // Date Data

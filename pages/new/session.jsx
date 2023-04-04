@@ -4,15 +4,13 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useAuth } from "../../authentication/AuthContext";
-import PageTitleComp from "../../components/ReusableComps/PageTitleComp";
+import PageTitleComp from "../../components/utilities/PageTitleComp";
 import { isAuthenticated } from "../../components/SecurityCheck";
 import SessionTemplateListComp from "../../components/CardComp/SessionListTemplateComp";
 
 function NewBooking() {
   const router = useRouter();
   const { user } = useAuth();
-  const [lessonType, setLessonType] = useState();
-  const [lessonTypePicked, setLessonTypPicked] = useState(false);
 
   if (!isAuthenticated(user)) {
     router.push("/login");

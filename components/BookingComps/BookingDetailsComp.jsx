@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import {
-  DatePicker,
-  LocalizationProvider,
-  TimePicker,
-} from "@mui/x-date-pickers";
-import { TextField, useMediaQuery } from "@mui/material";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { TextField } from "@mui/material";
 import TimeComp from "./TimeComp";
+import LocationComp from "./LocationComp";
+import SessionTypeComp from "./SessionTypeComp";
+import ConfirmComp from "./ConfirmationComp";
 
 function BookingDetailsComp() {
   // Date Data
@@ -20,8 +19,17 @@ function BookingDetailsComp() {
   const [sessionType, setSessionType] = useState(null);
 
   // Location Data
-  const [locationType, setLocationType] = useState(null);
-  console.log(date);
+  const [location, setLocation] = useState(null);
+
+  const isEligible = () => {
+    return (
+      date != null &&
+      startTime != null &&
+      endTime != null &&
+      ((sessionType === "In Person" && location != null) ||
+        sessionType === "Virtual")
+    );
+  };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -30,6 +38,7 @@ function BookingDetailsComp() {
         <DatePicker
           value={date}
           onChange={setDate}
+          disablePast
           label="Class Date"
           inputFormat="DD/MM/YYYY"
           renderInput={(params) => <TextField {...params} />}
@@ -40,8 +49,16 @@ function BookingDetailsComp() {
           setStartTime={setStartTime}
           endTime={endTime}
           setEndTime={setEndTime}
-          className="flex justify-self-center"
         />
+        <SessionTypeComp
+          sessionType={sessionType}
+          setSessionType={setSessionType}
+        />
+        {sessionType === "In Person" && (
+          <LocationComp location={location} setLocation={setLocation} />
+        )}
+
+        <ConfirmComp eligible={isEligible()} />
       </div>
     </LocalizationProvider>
   );

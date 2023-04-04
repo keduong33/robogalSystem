@@ -11,7 +11,7 @@ import { MdLocationOn } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FullSessionInfoComp from "./FullSessionInfoComp";
-import GetDataListComp from "../ReusableComps/GetDataListComp";
+import GetDataListComp from "../utilities/GetDataListComp";
 import { useAuth } from "../../authentication/AuthContext";
 
 function SessionTemplateListComp() {

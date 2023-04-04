@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import GetDataListComp from "../ReusableComps/GetDataListComp";
+import GetDataListComp from "../utilities/GetDataListComp";
 import { useAuth } from "../../authentication/AuthContext";
 import { useEffect } from "react";
 import {

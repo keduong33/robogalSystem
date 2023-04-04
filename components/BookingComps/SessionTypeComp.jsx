@@ -1,9 +1,9 @@
 import React from "react";
 
-function AddSessionTypeComp({ sessionType, setSessionType }) {
+function SessionTypeComp({ sessionType, setSessionType }) {
   return (
-    <div className="customBorder">
-      <form>
+    <div className="customBorder w-fit flex justify-self-center">
+      <form className="pr-4">
         <div>
           <label>Choose Session Type</label>
         </div>
@@ -36,4 +36,4 @@ function AddSessionTypeComp({ sessionType, setSessionType }) {
   );
 }
 
-export default AddSessionTypeComp;
+export default SessionTypeComp;

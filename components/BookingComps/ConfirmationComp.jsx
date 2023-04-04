@@ -1,11 +1,20 @@
+import { useRouter } from "next/router";
 import React from "react";
 
 function ConfirmComp({ eligible }) {
+  const router = useRouter();
+  const handleCancel = () => {
+    router.back();
+  };
+
   return (
     <div className="grid grid-cols-3 mx-auto lg:mx-60">
       <div className="col-start-3 flex justify-end">
         <div>
-          <button className="transparentButton font-normal underline text-gray-400 max-w-fit">
+          <button
+            onClick={handleCancel}
+            className="transparentButton font-normal underline  max-w-fit"
+          >
             Cancel
           </button>
         </div>
@@ -16,7 +25,7 @@ function ConfirmComp({ eligible }) {
         ) : (
           <div>
             <button
-              className="transparentButton font-normal text-gray-400 border border-gray-400 max-w-fit"
+              className="transparentButton font-normal  border  max-w-fit"
               disabled
             >
               Next

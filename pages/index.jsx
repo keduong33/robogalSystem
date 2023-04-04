@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useAuth } from "../authentication/AuthContext";
-import PageTitleComp from "../components/ReusableComps/PageTitleComp";
 import { MdOutlineWavingHand } from "react-icons/md";
 import { isAuthenticated } from "../components/SecurityCheck";
 import BookingListComp from "../components/BookingComps/BookingListComp";
+import PageTitleComp from "../components/utilities/PageTitleComp";
 
 function Home() {
   const { user } = useAuth();

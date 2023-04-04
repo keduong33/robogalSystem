@@ -3,10 +3,10 @@
 import "../styles/globals.css";
 import "../styles/Calendar.css";
 import { AuthContextProvider } from "../authentication/AuthContext";
-import LogoBarComp from "../components/ReusableComps/LogoBarComp";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { SecurityCheck } from "../components/SecurityCheck";
+import LogoBar from "../components/utilities/LogoBarComp";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
     >
       <AuthContextProvider>
         <div>
-          <LogoBarComp />
+          <LogoBar />
         </div>
         <div className="px-10 pb-5">
           <Component {...pageProps} />
