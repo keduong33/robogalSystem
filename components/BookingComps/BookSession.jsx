@@ -27,7 +27,7 @@ function BookSession() {
       date != null &&
       startTime != null &&
       endTime != null &&
-      ((sessionType === "In Person" && location != null) ||
+      ((sessionType === "In Person" && location != "Virtual") ||
         sessionType === "Virtual") &&
       dayjs(startTime) < dayjs(endTime)
     );

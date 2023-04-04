@@ -25,7 +25,7 @@ function PickSessionType({ sessionType, setSessionType, setLocation }) {
               type="radio"
               checked={sessionType === "Virtual"}
               onChange={() => {
-                setLocation(null);
+                setLocation("Virtual");
                 setSessionType("Virtual");
               }}
             />

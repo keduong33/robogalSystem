@@ -2,6 +2,7 @@ import { Box, Modal, Typography } from "@mui/material";
 import React from "react";
 import PlaceIcon from "@mui/icons-material/Place";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import SaveNewSession from "../utilities/SaveNewSession";
 
 function ConfirmationCard({
   isConfirmCardOpen,
@@ -50,7 +51,7 @@ function ConfirmationCard({
           </Typography>
           <Typography
             id="modal-modal-description"
-            component="p"
+            component="div"
             sx={{
               textAlign: "justify",
               alignSelf: "center",
@@ -58,25 +59,32 @@ function ConfirmationCard({
               color: "black",
             }}
           >
-            <div className="mt-2">
+            <Typography className="mt-2" component="div">
               <AccessTimeFilledIcon /> {completeSessionInfo.startTime} -{" "}
               {completeSessionInfo.endTime}, {completeSessionInfo.date}
-            </div>
+            </Typography>
 
-            <div>
+            <Typography component="div">
               <PlaceIcon />{" "}
               {completeSessionInfo.location == null
                 ? "Virtual"
                 : completeSessionInfo.location}
-            </div>
+            </Typography>
 
             <Typography component="h3" sx={{ fontWeight: "bold", mt: 2 }}>
               Description
             </Typography>
 
-            <Typography>{completeSessionInfo.shortDescription}</Typography>
+            <Typography component="div">
+              {completeSessionInfo.shortDescription}
+            </Typography>
           </Typography>
-          <button onClick={() => {}} className="greenButton w-fit mt-4">
+          <button
+            onClick={() => {
+              SaveNewSession(completeSessionInfo);
+            }}
+            className="greenButton w-fit mt-4"
+          >
             Confirm
           </button>
         </Box>
