@@ -1,43 +1,83 @@
 import { Box, Modal, Typography } from "@mui/material";
 import React from "react";
+import PlaceIcon from "@mui/icons-material/Place";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 
-function ConfirmationCard() {
+function ConfirmationCard({
+  isConfirmCardOpen,
+  setIsConfirmCardOpen,
+  bookingInfo,
+}) {
+  const template = JSON.parse(sessionStorage.getItem("currentTemplate"));
+  const completeSessionInfo = {
+    title: template.title,
+    shortDescription: template.shortDescription,
+    date: bookingInfo.date.format("DD/MM/YY"),
+    startTime: bookingInfo.startTime.format("h:mm A"),
+    endTime: bookingInfo.endTime.format("h:mm A"),
+    sessionType: bookingInfo.sessionType,
+    location: bookingInfo.location,
+  };
+
   return (
     <div>
       <Modal
-        open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        open={isConfirmCardOpen}
+        onClose={() => setIsConfirmCardOpen(false)}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-slate-100 border-2 border-black border-solid shadow-slate-50 p-4 w-full lg:w-[60em] xl:w-[70em] max-h-80  overflow-y-auto text-black flex-col">
           <Typography
+            variant="h4"
+            component="h1"
+            sx={{
+              fontStyle: "italic",
+              fontWeight: "light",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            Please confirm the details
+          </Typography>
+          <Typography
             id="modal-modal-title"
-            variant="h6"
+            variant="h5"
             component="h2"
             sx={{ alignSelf: "start" }}
           >
-            {info.title}
+            {completeSessionInfo.title}
           </Typography>
           <Typography
             id="modal-modal-description"
-            sx={{ mt: 2, textAlign: "justify", alignSelf: "center" }}
-          >
-            {info.longDescription}
-          </Typography>
-          <button
-            onClick={() => {
-              router.push({
-                pathname: "/new/details",
-                query: {
-                  templateID: info.id,
-                  templateTitle: info.title,
-                },
-              });
+            component="p"
+            sx={{
+              textAlign: "justify",
+              alignSelf: "center",
+              backgroundColor: "transparent",
+              color: "black",
             }}
-            className="greenButton w-fit mt-4"
           >
-            Select This Session
+            <div className="mt-2">
+              <AccessTimeFilledIcon /> {completeSessionInfo.startTime} -{" "}
+              {completeSessionInfo.endTime}, {completeSessionInfo.date}
+            </div>
+
+            <div>
+              <PlaceIcon />{" "}
+              {completeSessionInfo.location == null
+                ? "Virtual"
+                : completeSessionInfo.location}
+            </div>
+
+            <Typography component="h3" sx={{ fontWeight: "bold", mt: 2 }}>
+              Description
+            </Typography>
+
+            <Typography>{completeSessionInfo.shortDescription}</Typography>
+          </Typography>
+          <button onClick={() => {}} className="greenButton w-fit mt-4">
+            Confirm
           </button>
         </Box>
       </Modal>

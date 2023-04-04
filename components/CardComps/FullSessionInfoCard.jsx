@@ -2,7 +2,7 @@ import { Box, Modal, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import React from "react";
 
-function FullSessionInfoComp({ isModalOpen, setIsModalOpen, info }) {
+function FullSessionInfoComp({ isModalOpen, setIsModalOpen, template }) {
   const router = useRouter();
 
   return (
@@ -20,22 +20,22 @@ function FullSessionInfoComp({ isModalOpen, setIsModalOpen, info }) {
             component="h2"
             sx={{ alignSelf: "start" }}
           >
-            {info.title}
+            {template.title}
           </Typography>
           <Typography
             id="modal-modal-description"
             sx={{ mt: 2, textAlign: "justify", alignSelf: "center" }}
           >
-            {info.longDescription}
+            {template.longDescription}
           </Typography>
           <button
             onClick={() => {
+              sessionStorage.setItem(
+                "currentTemplate",
+                JSON.stringify(template)
+              );
               router.push({
                 pathname: "/new/details",
-                query: {
-                  templateID: info.id,
-                  templateTitle: info.title,
-                },
               });
             }}
             className="greenButton w-fit mt-4"

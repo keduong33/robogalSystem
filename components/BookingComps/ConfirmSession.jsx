@@ -2,11 +2,12 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import ConfirmationCard from "../CardComps/ConfirmationCard";
 
-function ConfirmComp({ eligible }) {
+function ConfirmSession({ eligible, bookingInfo }) {
   const router = useRouter();
   const [isConfirmCardOpen, setIsConfirmCardOpen] = useState(false);
 
   const handleCancelClick = () => {
+    sessionStorage.removeItem("currentTemplate", null);
     router.back();
   };
 
@@ -46,9 +47,17 @@ function ConfirmComp({ eligible }) {
         </div>
       </div>
 
-      <div>{isConfirmCardOpen && <ConfirmationCard />}</div>
+      <div>
+        {isConfirmCardOpen && (
+          <ConfirmationCard
+            isConfirmCardOpen={isConfirmCardOpen}
+            setIsConfirmCardOpen={setIsConfirmCardOpen}
+            bookingInfo={bookingInfo}
+          />
+        )}
+      </div>
     </div>
   );
 }
 
-export default ConfirmComp;
+export default ConfirmSession;

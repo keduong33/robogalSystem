@@ -17,7 +17,7 @@ import { useAuth } from "../../authentication/AuthContext";
 function SessionTemplateListComp() {
   const { user } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false); //a flag to display more info on a session
-  const [info, setInfo] = useState("");
+  const [template, setTemplate] = useState("");
   let count = 0;
 
   //const [templateList, setTemplateList] = useState([""]);
@@ -37,8 +37,7 @@ function SessionTemplateListComp() {
     time,
     location,
     shortDescription,
-    longDescription,
-    imageUrl
+    longDescription
   ) {
     return {
       id,
@@ -49,7 +48,6 @@ function SessionTemplateListComp() {
       location,
       shortDescription,
       longDescription,
-      imageUrl,
     };
   }
 
@@ -62,8 +60,7 @@ function SessionTemplateListComp() {
       "1AM-2AM",
       "Your primary",
       "Short",
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.",
-      "/images/test.jpg"
+      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32."
     ),
     createData(
       "ID2",
@@ -73,8 +70,7 @@ function SessionTemplateListComp() {
       "1AM-2AM",
       "Location",
       "Short",
-      "This is a long desc",
-      "/images/test.jpg"
+      "This is a long desc"
     ),
     createData(
       "ID3",
@@ -84,8 +80,7 @@ function SessionTemplateListComp() {
       "1AM-2AM",
       "Location",
       "Short",
-      "This is a long desc",
-      "/images/test.jpg"
+      "This is a long desc"
     ),
   ];
 
@@ -133,7 +128,7 @@ function SessionTemplateListComp() {
                   className="greenButton w-fit h-fit"
                   onClick={() => {
                     setIsModalOpen(true);
-                    setInfo(templateObj);
+                    setTemplate(templateObj);
                   }}
                 >
                   Select This Session
@@ -150,7 +145,7 @@ function SessionTemplateListComp() {
           <FullSessionInfoCard
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
-            info={info}
+            template={template}
           />
         )}
       </div>

@@ -8,7 +8,8 @@ import { isAuthenticated } from "../../components/SecurityCheck";
 function AddDetails(props) {
   const { user } = useAuth();
   const router = useRouter();
-  const pageTitle = props.router.query.templateTitle;
+  const template = sessionStorage.getItem("currentTemplate");
+  const pageTitle = JSON.parse(template).title;
 
   if (!isAuthenticated(user)) {
     router.push("/login");

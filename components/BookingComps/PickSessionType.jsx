@@ -1,6 +1,6 @@
 import React from "react";
 
-function SessionTypeComp({ sessionType, setSessionType }) {
+function PickSessionType({ sessionType, setSessionType, setLocation }) {
   return (
     <div className="customBorder w-fit flex justify-self-center">
       <form className="pr-4">
@@ -25,6 +25,7 @@ function SessionTypeComp({ sessionType, setSessionType }) {
               type="radio"
               checked={sessionType === "Virtual"}
               onChange={() => {
+                setLocation(null);
                 setSessionType("Virtual");
               }}
             />
@@ -36,4 +37,4 @@ function SessionTypeComp({ sessionType, setSessionType }) {
   );
 }
 
-export default SessionTypeComp;
+export default PickSessionType;

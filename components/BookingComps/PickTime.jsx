@@ -2,9 +2,9 @@ import { LocalizationProvider, TimePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import React, { useState } from "react";
 import { TextField } from "@mui/material";
+import dayjs from "dayjs";
 
-function TimeComp({ startTime, setStartTime, endTime, setEndTime }) {
-  const [startTimeFormatError, setStartTimeFormatError] = useState(false);
+function PickTime({ startTime, setStartTime, endTime, setEndTime }) {
   const [endTimeMinTimeError, setEndTimeMinTimeError] = useState(false);
 
   /*---------------------------------------------*/
@@ -18,7 +18,6 @@ function TimeComp({ startTime, setStartTime, endTime, setEndTime }) {
             value={startTime}
             minutesStep={5}
             onChange={(newTime) => {
-              setStartTimeFormatError(false);
               setStartTime(newTime);
             }}
             renderInput={(params) => (
@@ -40,12 +39,12 @@ function TimeComp({ startTime, setStartTime, endTime, setEndTime }) {
             label="End Time"
             value={endTime}
             minutesStep={5}
-            minTime={startTime}
+            minTime={dayjs(startTime).add(30, "minutes")}
             onChange={(newTime) => {
               setEndTimeMinTimeError(false);
               setEndTime(newTime);
             }}
-            onError={(reason, value) => {
+            onError={(reason) => {
               if (reason == "minTime") {
                 setEndTimeMinTimeError(true);
               }
@@ -71,4 +70,4 @@ function TimeComp({ startTime, setStartTime, endTime, setEndTime }) {
   );
 }
 
-export default TimeComp;
+export default PickTime;

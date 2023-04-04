@@ -6,6 +6,7 @@ import PickTime from "./PickTime";
 import PickLocation from "./PickLocation";
 import PickSessionType from "./PickSessionType";
 import ConfirmSession from "./ConfirmSession";
+import dayjs from "dayjs";
 
 function BookSession() {
   // Date Data
@@ -27,8 +28,17 @@ function BookSession() {
       startTime != null &&
       endTime != null &&
       ((sessionType === "In Person" && location != null) ||
-        sessionType === "Virtual")
+        sessionType === "Virtual") &&
+      dayjs(startTime) < dayjs(endTime)
     );
+  };
+
+  const bookingInfo = {
+    date: date,
+    startTime: startTime,
+    endTime: endTime,
+    sessionType: sessionType,
+    location: location,
   };
 
   return (
@@ -53,12 +63,13 @@ function BookSession() {
         <PickSessionType
           sessionType={sessionType}
           setSessionType={setSessionType}
+          setLocation={setLocation}
         />
         {sessionType === "In Person" && (
           <PickLocation location={location} setLocation={setLocation} />
         )}
 
-        <ConfirmSession eligible={isEligible()} />
+        <ConfirmSession eligible={isEligible()} bookingInfo={bookingInfo} />
       </div>
     </LocalizationProvider>
   );

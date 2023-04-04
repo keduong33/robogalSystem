@@ -1,6 +1,6 @@
 import React from "react";
 
-function LocationComp({ location, setLocation }) {
+function PickLocation({ location, setLocation }) {
   return (
     <div className="customBorder w-fit flex justify-self-center">
       <form className="pr-4">
@@ -9,9 +9,9 @@ function LocationComp({ location, setLocation }) {
           <label>
             <input
               type="radio"
-              checked={location === "default"}
+              checked={location === "Your school"}
               onChange={() => {
-                setLocation("default");
+                setLocation("Your school");
               }}
             />
             Your school
@@ -34,4 +34,4 @@ function LocationComp({ location, setLocation }) {
   );
 }
 
-export default LocationComp;
+export default PickLocation;

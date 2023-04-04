@@ -12,7 +12,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-function BookingsListComp() {
+function BookingsList() {
   const { user } = useAuth();
   // const [sessionList, setSession] = useState([""]);
   // useEffect(() => {
@@ -121,4 +121,4 @@ function BookingsListComp() {
   );
 }
 
-export default BookingsListComp;
+export default BookingsList;
