@@ -16,14 +16,14 @@ function BookingsList() {
   const [sessionList, setSession] = useState([""]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    console.log("Fetch");
     async function fetchSessionList() {
       const sessions = await RetrieveList("sessions", user);
       setSession(sessions);
       setLoading(false);
     }
+    console.log("Fetch");
     fetchSessionList();
-  }, [user, sessionList]);
+  }, []);
 
   // function createData(title, status, date, time, location) {
   //   return { title, status, date, time, location };
@@ -64,68 +64,62 @@ function BookingsList() {
   };
   let count = 0;
   return (
-    <>
-      {loading ? (
-        <p>Loading</p>
-      ) : (
-        <TableContainer
-          className="w-full sm:max-w-screen-xl mx-auto"
-          sx={{ maxHeight: "500px", marginBottom: 5 }}
-        >
-          <Table
-            aria-label="Booking list"
-            className="h-fit"
-            sx={{ borderCollapse: "separate", borderSpacing: "0 10px" }}
-          >
-            <TableHead>
-              <TableRow>
-                <TableCell sx={{ borderBottom: "transparent" }}>
-                  Session Name
-                </TableCell>
-                <NormalTableCell value={"Status"} />
-                <NormalTableCell value={"Date"} />
-                <NormalTableCell value={"Time"} />
-                <NormalTableCell value={"Location"} />
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {sessionList.map((sessionObj) => (
-                <TableRow
-                  key={count++}
-                  sx={{
-                    backgroundColor: getStatusColor(sessionObj.status),
-                    marginBottom: "10px",
-                  }}
-                >
-                  <TableCell
-                    sx={{
-                      borderBottom: "transparent",
-                      borderTopLeftRadius: 20,
-                      borderBottomLeftRadius: 20,
-                    }}
-                  >
-                    {sessionObj.title}
-                  </TableCell>
-                  <NormalTableCell value={sessionObj.status} />
-                  <NormalTableCell value={sessionObj.date} />
-                  <NormalTableCell value={sessionObj.time} />
-                  <TableCell
-                    sx={{
-                      borderBottom: "transparent",
-                      borderTopRightRadius: 20,
-                      borderBottomRightRadius: 20,
-                    }}
-                    align="right"
-                  >
-                    {sessionObj.location}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      )}
-    </>
+    <TableContainer
+      className="w-full sm:max-w-screen-xl mx-auto"
+      sx={{ maxHeight: "500px", marginBottom: 5 }}
+    >
+      <Table
+        aria-label="Booking list"
+        className="h-fit"
+        sx={{ borderCollapse: "separate", borderSpacing: "0 10px" }}
+      >
+        <TableHead>
+          <TableRow>
+            <TableCell sx={{ borderBottom: "transparent" }}>
+              Session Name
+            </TableCell>
+            <NormalTableCell value={"Status"} />
+            <NormalTableCell value={"Date"} />
+            <NormalTableCell value={"Time"} />
+            <NormalTableCell value={"Location"} />
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {sessionList.map((sessionObj) => (
+            <TableRow
+              key={count++}
+              sx={{
+                backgroundColor: getStatusColor(sessionObj.status),
+                marginBottom: "10px",
+              }}
+            >
+              <TableCell
+                sx={{
+                  borderBottom: "transparent",
+                  borderTopLeftRadius: 20,
+                  borderBottomLeftRadius: 20,
+                }}
+              >
+                {sessionObj.title}
+              </TableCell>
+              <NormalTableCell value={sessionObj.status} />
+              <NormalTableCell value={sessionObj.date} />
+              <NormalTableCell value={sessionObj.time} />
+              <TableCell
+                sx={{
+                  borderBottom: "transparent",
+                  borderTopRightRadius: 20,
+                  borderBottomRightRadius: 20,
+                }}
+                align="right"
+              >
+                {sessionObj.location}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 

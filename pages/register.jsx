@@ -20,17 +20,11 @@ function Register() {
 
   async function saveNewUser(user) {
     console.log(user);
-    // await setDoc(doc(db, "user", user.uid), {
-    //   name: user.email,
-    //   role: "user",
-    //   ownedSessionList: [],
-    // });
+    await setDoc(doc(db, "users", user.uid), user);
   }
 
   useEffect(() => {
-    if (user) {
-      saveNewUser(user);
-    }
+    if (user) saveNewUser(user);
   }, [user]);
 
   if (isAuthenticated(user)) {

@@ -36,7 +36,13 @@ export const AuthContextProvider = ({ children }) => {
             role: userRole,
           });
         } else {
-          setUser(null);
+          setUser({
+            uid: currUser.uid,
+            email: currUser.email,
+            displayName: "",
+            role: "user",
+            ownedSessionList: [],
+          });
         }
       } else {
         setUser(null);
