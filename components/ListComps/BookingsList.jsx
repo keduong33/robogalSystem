@@ -23,7 +23,7 @@ function BookingsList() {
     }
     console.log("Fetch");
     fetchSessionList();
-  }, []);
+  }, [loading]);
 
   // function createData(title, status, date, time, location) {
   //   return { title, status, date, time, location };
