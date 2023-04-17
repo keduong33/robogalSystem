@@ -25,23 +25,6 @@ function BookingsList() {
     fetchSessionList();
   }, [loading]);
 
-  // function createData(title, status, date, time, location) {
-  //   return { title, status, date, time, location };
-  // }
-
-  // const sessionList = [
-  //   createData("Intro 1", "Confirmed", "1/1/2001", "1AM-2AM", "Your primary"),
-  //   createData("Intro 2", "Pending", "2/2/2002", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  //   createData("Lego", "Declined", "3/3/2003", "1AM-2AM", "Location"),
-  // ];
-
   const getStatusColor = (status) => {
     switch (status) {
       case "Confirmed":

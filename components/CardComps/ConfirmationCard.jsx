@@ -14,6 +14,7 @@ function ConfirmationCard({
   const template = JSON.parse(sessionStorage.getItem("currentTemplate"));
   const completeSessionInfo = {
     title: template.title,
+    longDescription: template.longDescription,
     shortDescription: template.shortDescription,
     date: bookingInfo.date.format("DD/MM/YY"),
     startTime: bookingInfo.startTime.format("h:mm A"),
@@ -79,7 +80,7 @@ function ConfirmationCard({
             </Typography>
 
             <Typography component="div">
-              {completeSessionInfo.shortDescription}
+              {completeSessionInfo.longDescription}
             </Typography>
           </Typography>
           <button

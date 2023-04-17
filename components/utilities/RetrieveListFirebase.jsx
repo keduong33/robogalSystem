@@ -14,7 +14,7 @@ async function GetDataListComp(requestedCollection, user) {
 
 async function getTemplateList() {
   let infoList = [];
-  const querySnapshot = await getDocs(collection(db, "sessionTemplate"));
+  const querySnapshot = await getDocs(collection(db, "sessionTemplates"));
   querySnapshot.forEach((doc) => {
     infoList.push(doc.data());
   });

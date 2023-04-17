@@ -58,7 +58,10 @@ function LoginForm({ setFormDetails, formDetails, handleLogin }) {
       </form>
       {/* Sign in with Google Button */}
       <div className="mt-2 flex">
-        <button className="blueButton rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mb-2 w-full">
+        <button
+          className="blueButton rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center dark:focus:ring-[#4285F4]/55 mb-2 w-full"
+          disabled
+        >
           <svg
             className="mr-2 -ml-1 w-4 h-4"
             aria-hidden="true"
